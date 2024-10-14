@@ -20,6 +20,18 @@ export function NoteIndex() {
             })
     }
 
+    function onRemoveNote(noteId) {
+        notesService.remove(noteId)
+            .then(() => {
+                setNotes(notes =>
+                    notes.filter(note => note.id !== noteId)
+                )
+            })
+            .catch(err => {
+                console.log('Problems removing note:', err)
+            })
+    }
+
     if (!notes || notes.length === 0) {
         return (
             <div>
@@ -38,7 +50,7 @@ export function NoteIndex() {
             <section className="note-preview-container">
                 {notes.map(note =>
                     <section key={note.id} className="note">
-                        <NotePreview note={note} />
+                        <NotePreview note={note} onRemoveNote={onRemoveNote}/>
                     </section>
                 )}
             </section>
