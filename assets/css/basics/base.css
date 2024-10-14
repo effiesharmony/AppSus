@@ -1,5 +1,10 @@
+html{
+    font-family: Google Sans, Roboto, Arial, Helvetica, sans-serif;
+}
+
 body {
-    margin: 0;
+    background-color: #f6f8fc;
+    margin: 0 10px;
 }
 
 h1,
