@@ -1,6 +1,6 @@
 // mail service
 import { asyncStorageService } from './services/async-storage.service.js'
-import { storageService } from './services/util.service.js'
+import { storageService } from './services/storage.service.js'
 
 export const mailService = {
     query,
@@ -77,81 +77,81 @@ function _createMails() {
     let mails = storageService.loadFromStorage(MAIL_KEY)
     if (!mails || !mails.length) {
         mails = [{
-            "id": 'e101',
-            "createdAt": 1551133930500,
-            "subject": 'Miss you!',
-            "body": 'Would love to catch up sometimes',
-            "isRead": false,
-            "sentAt": 1551133930594,
-            "removedAt": null,
-            "from": 'lili@appsus.com',
-            "to": 'user@appsus.com'
+            id: 'e101',
+            createdAt: 1551133930500,
+            subject: 'Miss you!',
+            body: 'Would love to catch up sometimes',
+            isRead: false,
+            sentAt: 1551133930594,
+            removedAt: null,
+            from: 'lili@appsus.com',
+            to: 'user@appsus.com'
         },
         {
-            "id": 'e101',
-            "createdAt": 1551133930500,
-            "subject": 'Miss you!',
-            "body": 'Would love to catch up sometimes',
-            "isRead": false,
-            "sentAt": 1551133930594,
-            "removedAt": null,
-            "from": 'appsus@appsus.com',
-            "to": 'user@appsus.com'
+            id: 'e101',
+            createdAt: 1551133930500,
+            subject: 'Miss you!',
+            body: 'Would love to catch up sometimes',
+            isRead: false,
+            sentAt: 1551133930594,
+            removedAt: null,
+            from: 'appsus@appsus.com',
+            to: 'user@appsus.com'
         },
         {
-            "id": 'e101',
-            "createdAt": 1551133930500,
-            "subject": 'Miss you!',
-            "body": 'Would love to catch up sometimes',
-            "isRead": false,
-            "sentAt": 1551133930594,
-            "removedAt": null,
-            "from": 'appsus@appsus.com',
-            "to": 'user@appsus.com'
+            id: 'e101',
+            createdAt: 1551133930500,
+            subject: 'Miss you!',
+            body: 'Would love to catch up sometimes',
+            isRead: false,
+            sentAt: 1551133930594,
+            removedAt: null,
+            from: 'appsus@appsus.com',
+            to: 'user@appsus.com'
         },
         {
-            "id": 'e101',
-            "createdAt": 1551133930500,
-            "subject": 'Miss you!',
-            "body": 'Would love to catch up sometimes',
-            "isRead": false,
-            "sentAt": 1551133930594,
-            "removedAt": null,
-            "from": 'appsus@appsus.com',
-            "to": 'user@appsus.com'
+            id: 'e101',
+            createdAt: 1551133930500,
+            subject: 'Miss you!',
+            body: 'Would love to catch up sometimes',
+            isRead: false,
+            sentAt: 1551133930594,
+            removedAt: null,
+            from: 'appsus@appsus.com',
+            to: 'user@appsus.com'
         },
         {
-            "id": 'e101',
-            "createdAt": 1551133930500,
-            "subject": 'Miss you!',
-            "body": 'Would love to catch up sometimes',
-            "isRead": false,
-            "sentAt": 1551133930594,
-            "removedAt": null,
-            "from": 'appsus@appsus.com',
-            "to": 'user@appsus.com'
+            id: 'e101',
+            createdAt: 1551133930500,
+            subject: 'Miss you!',
+            body: 'Would love to catch up sometimes',
+            isRead: false,
+            sentAt: 1551133930594,
+            removedAt: null,
+            from: 'appsus@appsus.com',
+            to: 'user@appsus.com'
         },
         {
-            "id": 'e101',
-            "createdAt": 1551133930500,
-            "subject": 'Miss you!',
-            "body": 'Would love to catch up sometimes',
-            "isRead": false,
-            "sentAt": 1551133930594,
-            "removedAt": null,
-            "from": 'appsus@appsus.com',
-            "to": 'user@appsus.com'
+            id: 'e101',
+            createdAt: 1551133930500,
+            subject: 'Miss you!',
+            body: 'Would love to catch up sometimes',
+            isRead: false,
+            sentAt: 1551133930594,
+            removedAt: null,
+            from: 'appsus@appsus.com',
+            to: 'user@appsus.com'
         },
         {
-            "id": 'e101',
-            "createdAt": 1551133930500,
-            "subject": 'Miss you!',
-            "body": 'Would love to catch up sometimes',
-            "isRead": false,
-            "sentAt": 1551133930594,
-            "removedAt": null,
-            "from": 'appsus@appsus.com',
-            "to": 'user@appsus.com'
+            id: 'e101',
+            createdAt: 1551133930500,
+            subject: 'Miss you!',
+            body: 'Would love to catch up sometimes',
+            isRead: false,
+            sentAt: 1551133930594,
+            removedAt: null,
+            from: 'appsus@appsus.com',
+            to: 'user@appsus.com'
         },]
         storageService.saveToStorage(MAIL_KEY, mail)
     }
