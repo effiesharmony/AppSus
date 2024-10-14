@@ -1,5 +1,6 @@
 import { asyncStorageService } from "../../../services/async-storage.service.js"
-import {storageService} from "../../../services/storage.service.js"
+import { storageService } from "../../../services/storage.service.js"
+import { utilService } from "../../../services/util.service.js"
 
 const NOTES_KEY = 'notesDB'
 
@@ -45,13 +46,12 @@ const notes = [
     }
 ]
 
-storageService.saveToStorage(NOTES_KEY, notes)
-
 export const notesService = {
     query,
     get,
     remove,
     save,
+    addNote,
 }
 
 function query() {
@@ -83,4 +83,8 @@ function save(note) {
     } else {
         return asyncStorageService.post(NOTES_KEY, note)
     }
+}
+
+function addNote(note) {
+    return asyncStorageService.post(NOTES_KEY, note)
 }
