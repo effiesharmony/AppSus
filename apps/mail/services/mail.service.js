@@ -1,6 +1,6 @@
 // mail service
-import { storageService } from './services/async-storage.service.js'
-import { utilService } from './services/util.service.js'
+import { asyncStorageService } from './services/async-storage.service.js'
+import { storageService } from './services/util.service.js'
 
 export const mailService = {
     query,
@@ -14,7 +14,7 @@ const MAIL_KEY = 'bookDB'
 _createMails()
 
 function query(filterBy = {}) {
-    return storageService.query(MAIL_KEY)
+    return asyncStorageService.query(MAIL_KEY)
         .then(mails => {
             if (filterBy.subject) {
                 const regExp = new RegExp(filterBy.title, 'i')
@@ -32,18 +32,18 @@ function query(filterBy = {}) {
 }
 
 function get(mailId) {
-    return storageService.get(MAIL_KEY, mailId)//.then(_setNextPrevMailId)
+    return asyncStorageService.get(MAIL_KEY, mailId)//.then(_setNextPrevMailId)
 }
 
 function remove(mailId) {
-    return storageService.remove(MAIL_KEY, mailId)
+    return asyncStorageService.remove(MAIL_KEY, mailId)
 }
 
 function save(mail) {
     if (mail.id) {
-        return storageService.put(MAIL_KEY, mail)
+        return asyncStorageService.put(MAIL_KEY, mail)
     } else {
-        return storageService.post(MAIL_KEY, mail)
+        return asyncStorageService.post(MAIL_KEY, mail)
     }
 }
 
@@ -74,7 +74,7 @@ function getDefaultFilter() {
 // }
 
 function _createMails() {
-    let mails = utilService.loadFromStorage(MAIL_KEY)
+    let mails = storageService.loadFromStorage(MAIL_KEY)
     if (!mails || !mails.length) {
         mails = [{
             "id": 'e101',
@@ -153,6 +153,6 @@ function _createMails() {
             "from": 'appsus@appsus.com',
             "to": 'user@appsus.com'
         },]
-        utilService.saveToStorage(MAIL_KEY, mail)
+        storageService.saveToStorage(MAIL_KEY, mail)
     }
 }
