@@ -21,12 +21,17 @@ export function NoteIndex() {
     if (!notes) return <div>Loading your notes...</div>
 
     return (
-        <div>
-            {notes.map(note =>
-                <section key={note.id} className="note">
-                    <NotePreview note={note} />
-                </section>
-            )}
+        <div className="note-index">
+            <section>
+                <h1>Notes</h1>
+            </section>
+            <section className="note-preview-container">
+                {notes.map(note =>
+                    <section key={note.id} className="note">
+                        <NotePreview note={note} />
+                    </section>
+                )}
+            </section>
         </div>
     )
 }

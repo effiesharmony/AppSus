@@ -16,7 +16,8 @@
 
 
 /* Cmps */
-
+@import '../css/apps/note/cmps/NoteIndex.css';
+@import '../css/apps/note/cmps/NotePreview.css';
 @import './cmps/UserMsg.css';
 @import './cmps/AppHeader.css';
 
