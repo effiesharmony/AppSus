@@ -1,0 +1,12 @@
+.note-preview-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: .7em;
+    row-gap: .7em;
+}
+
+.note-index h1 {
+    font-size: 1.5em;
+    margin-bottom: .8em;
+}
