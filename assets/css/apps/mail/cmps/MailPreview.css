@@ -1,7 +1,14 @@
-.true{
-    background-color: #f1f6fc;
- }
+.mail-preview{
+    margin: 20px 0;
+}
+.mail-preview.true {
+  background-color: #f1f6fc;
+}
 
-.false{
-    background-color: #ffffff;
- }
+.mail-preview.false {
+  background-color: #ffffff;
+}
+
+.mail-preview:hover{
+box-shadow: 0 0 3px 0.5px rgba(128, 128, 128, 0.488);
+}
