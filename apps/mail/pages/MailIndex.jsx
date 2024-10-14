@@ -1,5 +1,5 @@
-import { mailService } from "../mail.service.js";
-import { MailList } from "../MailList.jsx";
+import { mailService } from "../services/mail.service.js";
+import { MailList } from "../cmps/MailList.jsx";
 
 const { useState, useEffect } = React;
 
@@ -16,6 +16,7 @@ export function MailIndex() {
       .catch((err) => console.log("err:", err))
   }
 
+  if (!mails) return <div>Loading...</div>
   return (
   <main>
     <MailList mails={mails} />

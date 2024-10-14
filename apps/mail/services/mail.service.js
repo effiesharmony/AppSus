@@ -1,6 +1,6 @@
 // mail service
-import { asyncStorageService } from './services/async-storage.service.js'
-import { storageService } from './services/storage.service.js'
+import { asyncStorageService } from '../../../services/async-storage.service.js'
+import { storageService } from '../../../services/storage.service.js'
 
 export const mailService = {
     query,
@@ -81,14 +81,14 @@ function _createMails() {
             createdAt: 1551133930500,
             subject: 'Miss you!',
             body: 'Would love to catch up sometimes',
-            isRead: false,
+            isRead: true,
             sentAt: 1551133930594,
             removedAt: null,
             from: 'lili@appsus.com',
             to: 'user@appsus.com'
         },
         {
-            id: 'e101',
+            id: 'e102',
             createdAt: 1551133930500,
             subject: 'Miss you!',
             body: 'Would love to catch up sometimes',
@@ -99,7 +99,18 @@ function _createMails() {
             to: 'user@appsus.com'
         },
         {
-            id: 'e101',
+            id: 'e103',
+            createdAt: 1551133930500,
+            subject: 'Miss you!',
+            body: 'Would love to catch up sometimes',
+            isRead: true,
+            sentAt: 1551133930594,
+            removedAt: null,
+            from: 'appsus@appsus.com',
+            to: 'user@appsus.com'
+        },
+        {
+            id: 'e104',
             createdAt: 1551133930500,
             subject: 'Miss you!',
             body: 'Would love to catch up sometimes',
@@ -110,7 +121,7 @@ function _createMails() {
             to: 'user@appsus.com'
         },
         {
-            id: 'e101',
+            id: 'e105',
             createdAt: 1551133930500,
             subject: 'Miss you!',
             body: 'Would love to catch up sometimes',
@@ -121,7 +132,7 @@ function _createMails() {
             to: 'user@appsus.com'
         },
         {
-            id: 'e101',
+            id: 'e106',
             createdAt: 1551133930500,
             subject: 'Miss you!',
             body: 'Would love to catch up sometimes',
@@ -132,18 +143,7 @@ function _createMails() {
             to: 'user@appsus.com'
         },
         {
-            id: 'e101',
-            createdAt: 1551133930500,
-            subject: 'Miss you!',
-            body: 'Would love to catch up sometimes',
-            isRead: false,
-            sentAt: 1551133930594,
-            removedAt: null,
-            from: 'appsus@appsus.com',
-            to: 'user@appsus.com'
-        },
-        {
-            id: 'e101',
+            id: 'e107',
             createdAt: 1551133930500,
             subject: 'Miss you!',
             body: 'Would love to catch up sometimes',
@@ -153,6 +153,6 @@ function _createMails() {
             from: 'appsus@appsus.com',
             to: 'user@appsus.com'
         },]
-        storageService.saveToStorage(MAIL_KEY, mail)
+        storageService.saveToStorage(MAIL_KEY, mails)
     }
 }
