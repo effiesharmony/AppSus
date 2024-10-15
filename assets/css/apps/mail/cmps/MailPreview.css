@@ -1,6 +1,15 @@
-.mail-preview{
-    margin: 20px 0;
+.mail-preview {
+  cursor: pointer;
+  position: relative;
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: 200px 1fr auto;
+  align-items: center;
+  padding: 10px;
+  width: 100%;
+  border-bottom: 1px solid #dfdfdf;
 }
+
 .mail-preview.true {
   background-color: #f1f6fc;
 }
@@ -9,6 +18,69 @@
   background-color: #ffffff;
 }
 
-.mail-preview:hover{
-box-shadow: 0 0 3px 0.5px rgba(128, 128, 128, 0.488);
+.mail-preview::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  box-shadow: 0 0 3px 0.5px rgba(128, 128, 128, 0.674);
+  opacity: 0;
+  z-index: -1;
+}
+
+.mail-preview:hover::before {
+  opacity: 1;
+  z-index: 1;
+}
+.mail-preview:hover .mail-preview-detail-delete-btn {
+  display: block;
+  z-index: 2;
+}
+.mail-preview:hover .mail-preview-detail-sentAt {
+  display: none;
+}
+
+.mail-preview-details-from {
+  padding-right: 20px;
+}
+
+.mail-preview-details-subject {
+  padding-right: 20px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  max-width: 520px;
+}
+
+.mail-preview-detail-sentAt {
+  padding-right: 20px;
+  justify-self: end;
+}
+
+.mail-preview-detail-delete-btn {
+  display: none;
+  margin-right: 10px;
+  justify-self: end;
+  border: none;
+  background-color: transparent;
+}
+
+.mail-preview-delete-btn {
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+  text-overflow: ellipsis;
+  color: #595959;
+}
+
+.mail-preview-delete-btn:hover {
+  position: absolute;
+  right: 11px;
+  top: 2px;
+  border-radius: 50%;
+  padding: 13px 15px;
+  margin: 0;
+  background-color: rgba(128, 128, 128, 0.217);
 }

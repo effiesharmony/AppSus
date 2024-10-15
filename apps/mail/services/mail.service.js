@@ -10,7 +10,7 @@ export const mailService = {
     getDefaultFilter,
     // getFilterFromSearchParams,
 }
-const MAIL_KEY = 'bookDB'
+const MAIL_KEY = 'mailDB'
 _createMails()
 
 function query(filterBy = {}) {
@@ -79,12 +79,12 @@ function _createMails() {
         mails = [{
             id: 'e101',
             createdAt: 1551133930500,
-            subject: 'Miss you!',
-            body: 'Would love to catch up sometimes',
+            subject: 'Get more done with the Slack desktop app',
+            body: 'Our desktop app brings your team together in one place, keeping everyone on the same page. With Slack on your computer you can easily discuss projects, share updates, or ask teammates for help. Add the Slack app to collaborate online as easily as you do in person.',
             isRead: true,
             sentAt: 1551133930594,
             removedAt: null,
-            from: 'lili@appsus.com',
+            from: 'slack@appsus.com',
             to: 'user@appsus.com'
         },
         {
