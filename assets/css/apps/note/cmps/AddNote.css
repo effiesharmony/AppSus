@@ -2,9 +2,9 @@
     display: flex;
     gap: .7em;
     padding: 1em;
-    background-color: pink;
     margin-bottom: 10px;
     border-radius: 10px;
+    transition: 200ms;
 }
 
 .add-note button:hover, #color:hover{
