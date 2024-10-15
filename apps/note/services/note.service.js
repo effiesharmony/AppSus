@@ -55,7 +55,7 @@ export const notesService = {
 }
 
 function query() {
-    return asyncStorageService.query(NOTES_KEY)
+    return asyncStorageService.query(NOTES_KEY, 0)
         .then(notes => {
             // if (filterBy.title) {
             //     const regExp = new RegExp(filterBy.title, 'i')

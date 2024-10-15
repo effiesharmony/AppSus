@@ -1,12 +1,13 @@
 import { notesService } from "../services/note.service.js"
+import { ColorInput } from "./ColorInput.jsx"
 const { useEffect } = React
 export function NotePreview({ note, onRemoveNote}) {
 
-    function onColorChange(ev) {
-        console.log(ev.target.value)
-        note.style.backgroundColor = ev.target.value
+    function onChangeColor(color) {
+        note.style.backgroundColor = color
         notesService.save(note)
     }
+
 
     return (
         <article style={{ backgroundColor: note.style.backgroundColor }} className="note-preview">
@@ -15,7 +16,8 @@ export function NotePreview({ note, onRemoveNote}) {
             <section>
                 <button onClick={() => onRemoveNote(note.id)}>Delete</button>
                 <button>Edit</button>
-                <input onInput={onColorChange} type="color" id="color-picker" value={note.style.backgroundColor}/>
+                <ColorInput chosenColor={note.style.backgroundColor} onChangeColor={onChangeColor}/>
+                {/* <input onInput={onColorChange} type="color" id="color-picker" value={note.style.backgroundColor}/> */}
             </section>
         </article>
     )
