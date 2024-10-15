@@ -1,0 +1,12 @@
+.add-note {
+    display: flex;
+    gap: .7em;
+    padding: 1em;
+    background-color: pink;
+    margin-bottom: 10px;
+    border-radius: 10px;
+}
+
+.add-note button:hover, #color:hover{
+    cursor: pointer;
+}
