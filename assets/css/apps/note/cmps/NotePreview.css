@@ -10,6 +10,7 @@
     border-radius: .7em;
     transition: 250ms;
     margin-bottom: 10px;
+    word-break: break-word;
 }
 
 .note-preview p{
