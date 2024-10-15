@@ -1,7 +1,6 @@
 .note-preview-container {
-    display: flex;
+    columns: auto 250px;
     flex-direction: row;
-    flex-wrap: wrap;
     gap: .7em;
     row-gap: .7em;
 }

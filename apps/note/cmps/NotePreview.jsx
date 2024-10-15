@@ -17,7 +17,6 @@ export function NotePreview({ note, onRemoveNote}) {
                 <button onClick={() => onRemoveNote(note.id)}>Delete</button>
                 <button>Edit</button>
                 <ColorInput chosenColor={note.style.backgroundColor} onChangeColor={onChangeColor}/>
-                {/* <input onInput={onColorChange} type="color" id="color-picker" value={note.style.backgroundColor}/> */}
             </section>
         </article>
     )
