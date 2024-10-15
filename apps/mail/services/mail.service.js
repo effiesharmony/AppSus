@@ -8,6 +8,7 @@ export const mailService = {
     remove,
     save,
     getDefaultFilter,
+    onAddMail,
     // getFilterFromSearchParams,
 }
 const MAIL_KEY = 'mailDB'
@@ -45,6 +46,10 @@ function save(mail) {
     } else {
         return asyncStorageService.post(MAIL_KEY, mail)
     }
+}
+
+function onAddMail(mail) {
+    return asyncStorageService.post(MAIL_KEY, mail)
 }
 
 function getDefaultFilter() {

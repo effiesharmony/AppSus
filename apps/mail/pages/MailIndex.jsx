@@ -10,7 +10,7 @@ export function MailIndex() {
 
   useEffect(() => {
     loadMails();
-  }, []);
+  }, [mails]);
 
   function loadMails() {
     mailService.query()
@@ -36,10 +36,16 @@ export function MailIndex() {
 
   if (!mails) return <div>Loading...</div>
   return (
-  <main>
-    <button onClick={onAddMail}><i className="fa-solid fa-pen"></i></button>
+  <main className="main-mail-index">
+    <div className="main-mail-index-btns-list">
+    <div className="main-mail-index-btn">
+    <button className="main-mail-index-btn-add-mail" onClick={onAddMail}><i className="fa-solid fa-pen"></i></button>
+    </div>
     <MailList mails={mails} onRemoveMail={onRemoveMail}/>
+    </div>
+    <div>
       {isAddingMail && <MailAdd onCancel={onCancel}/>}
+    </div>
   </main>
 )
 }

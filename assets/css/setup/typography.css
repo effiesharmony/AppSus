@@ -4,6 +4,16 @@
 }
 
 @font-face {
+    font-family: 'Roboto-Bold';
+    src: url('../../fonts/Roboto-Bold.ttf');
+}
+
+@font-face {
     font-family: 'Google Sans';
     src: url('../../fonts/OpenSans-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'Google Sans-Bold';
+    src: url('../../fonts/OpenSans-Bold.ttf');
 }
