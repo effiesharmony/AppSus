@@ -1,4 +1,4 @@
-export function ColorInput({ chosenColor, onChangeColor }) {
+export function ColorPicker({ chosenColor, onChangeColor }) {
 
     const colors = [
         '#faafa8',

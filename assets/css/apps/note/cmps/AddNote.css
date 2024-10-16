@@ -1,12 +1,22 @@
 .add-note {
     display: flex;
+    flex-direction: column;
+    max-width: 554px;
     gap: .7em;
     padding: 1em;
     margin-bottom: 10px;
     border-radius: 10px;
     transition: 200ms;
+    
 }
 
-.add-note button:hover, #color:hover{
-    cursor: pointer;
+.add-note .color-btn {
+    position: relative;
+    opacity: 1;
+    font-size: 1.5em
+}
+
+.add-note-colors.colors-container{
+    position: absolute;
+    right: -100px;
 }

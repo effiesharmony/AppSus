@@ -1,26 +1,21 @@
 import { notesService } from "../services/note.service.js"
-import { ColorInput } from "./ColorInput.jsx"
+import { TextNote } from "./TextNote.jsx"
 const { useState } = React
 
 export function AddNote() {
 
     const [backgroundColor, setBackgroundColor] = useState('#efeff1')
+    const [isColorInputShown, setIsColorInputShown] = useState(false)
+    const [note, setNote] = useState({
+        type: null,
+        createdAt: null,
+        isPinned: false,
+        info: {},
+        style: {},
+    })
 
     function onSaveNote(ev) {
         ev.preventDefault()
-        const { title, noteTxt } = ev.target.elements
-        const newNote = {
-            type: 'NoteTxt',
-            createdAt: Date.now(),
-            isPinned: false,
-            info: {
-                title: title.value,
-                txt: noteTxt.value
-            },
-            style: {
-                backgroundColor: backgroundColor
-            },
-        }
         notesService.addNote(newNote)
         title.value = ''
         noteTxt.value = ''
@@ -30,16 +25,28 @@ export function AddNote() {
         setBackgroundColor(color)
     }
 
+    function onCancel() {
+        title.value = ''
+        noteTxt.value = ''
+    }
+
+    function onSetNoteType(type){
+        let newNote = {...note}
+        newNote.type = type
+        setNote({...note, ...newNote})
+    }
+
+    function onSetNoteTitle(ev){
+        let newNote = {...note}
+        newNote.info['title'] = ev.target.value
+        setNote({...note, ...newNote})
+    }
+
     return (
-        <section style={{backgroundColor: backgroundColor}} className="add-note">
+        <section style={{ backgroundColor: backgroundColor }} className="add-note">
             <form onSubmit={onSaveNote} className="add-note">
-                <input type="text" placeholder="Title" id="title" />
-                <br />
-                <textarea placeholder="Take a note" id="noteTxt" ></textarea>
-                <br />
-                <ColorInput onChangeColor={onSetColor} chosenColor={backgroundColor}/>
-                <br />
-                <button type="submit">Add Note</button>
+                <input onChange={(ev) => onSetNoteTitle(ev)} onClick={() => onSetNoteType('NoteText')} type="text" placeholder="Title" id="title" />
+                {note.type === 'NoteText' && <TextNote onCancel={onCancel} onSetColor={onSetColor} backgroundColor={backgroundColor} isColorInputShown={isColorInputShown} setIsColorInputShown={setIsColorInputShown} />}
             </form>
         </section>
     )
