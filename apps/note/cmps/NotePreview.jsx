@@ -17,6 +17,13 @@ export function NotePreview({ note, onRemoveNote }) {
             {note.type === 'NoteTxt' && <p>{note.info.txt}</p>}
             {note.type === 'NoteImg' && <img src={note.info.url} />}
             {note.type === 'NoteVid' && <a href={note.info.url} target="_blank">{note.info.url}</a>}
+            {note.type === 'NoteTodos' && note.info.todos.map((todo, index) =>
+                <div key={index}>
+                    <input type="checkbox" checked={todo.isChecked}/>
+                    <p>{todo.text}</p>
+                </div>
+            )
+            }
             <section className="btns">
                 <button className="delete-btn" onClick={() => onRemoveNote(note.id)}><i className="fa-solid fa-trash"></i></button>
                 <button onClick={() => setisColorInputShown(!isColorInputShown)} className="color-btn">
