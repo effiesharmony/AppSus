@@ -46,12 +46,16 @@
   font-family: Google Sans-Bold, san-serif;
 }
 
-.mail-preview-details-subject {
+.mail-preview-details-subject-body {
   padding-right: 20px;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
   margin-right: 50px;
+}
+
+.mail-preview-subject {
+  font-family: Google Sans-Bold, san-serif;
 }
 
 .mail-preview-detail-sentAt {

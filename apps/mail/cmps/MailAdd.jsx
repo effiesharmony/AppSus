@@ -1,4 +1,3 @@
-import { utilService } from "../../../services/util.service.js";
 import { mailService } from "../services/mail.service.js";
 const { useState } = React;
 
@@ -9,7 +8,7 @@ export function MailAdd({ onCancel }) {
 
   const loggedInUser = {
     email: "emilia@appsus.com",
-    fullname: "Emilia Clarke",
+    fullName: "Emilia Clarke",
   };
 
   function onMailAdd(ev) {
@@ -42,45 +41,41 @@ export function MailAdd({ onCancel }) {
       <div className="mail-add-form">
 
         <div className="mail-add-form-header">
-          <div className="mail-add-form-header-title">New mail</div>
-          <button onClick={onCancel}>X</button>
+          <div className="mail-add-form-header-title">New Message</div>
+          <button className="mail-add-form-header-button" onClick={onCancel}>X</button>
         </div>
 
-        <div className="mail-add-form-header">
-        <div>
-          <label>From:</label>
-          <div>{loggedInUser.email}</div>
-        </div>
-        <div>
-          <label htmlFor="to">To:</label>
+        <div className="mail-add-form-inputs">
+        <div className="mail-add-form-inputs-email">
           <input
             type="email"
             id="subject"
+            placeholder="To"
             value={to}
             onChange={(e) => setTo(e.target.value)}
             required
           />
         </div>
-        <div>
-          <label htmlFor="subject">Subject:</label>
+        <div className="mail-add-form-inputs-subject">
           <input
-            id="subject"
+            id="Subject:"
+            placeholder="Subject"
             value={subject}
             onChange={(e) => setSubject(e.target.value)}
             required
           />
         </div>
-        <div>
-          <label htmlFor="body">Body:</label>
+        <div className="mail-add-form-inputs-textarea">
           <textarea
             id="body"
+            placeholder="Body"
             value={body}
             onChange={(e) => setBody(e.target.value)}
             required
           />
         </div>
       </div>
-        <button type="submit">Send</button>
+        <button className="mail-add-form-submit-button" type="submit">Send</button>
       </div>
     </form>
   );

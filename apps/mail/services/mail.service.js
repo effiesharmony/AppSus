@@ -95,23 +95,23 @@ function _createMails() {
         {
             id: 'e102',
             createdAt: 1551133930500,
-            subject: 'Miss you!',
-            body: 'Would love to catch up sometimes',
+            subject: 'Get €15 off your first train booking on Uber',
+            body: 'Let’s get you places with more savings Book your first train ticket on the Uber app and get €15 off! T&Cs apply. Book a train!',
             isRead: false,
             sentAt: 1551133930594,
             removedAt: null,
-            from: 'appsus@appsus.com',
+            from: 'uber@appsus.com',
             to: 'user@appsus.com'
         },
         {
             id: 'e103',
             createdAt: 1551133930500,
-            subject: 'Miss you!',
-            body: 'Would love to catch up sometimes',
+            subject: 'Keep it up!',
+            body: 'Another week is over, which means the results of your Leaderboard are in: you finished at position 15 out of 50. Can you beat your results in this week\'s competition? Start a lesson!',
             isRead: true,
             sentAt: 1551133930594,
             removedAt: null,
-            from: 'appsus@appsus.com',
+            from: 'mimo@appsus.com',
             to: 'user@appsus.com'
         },
         {

@@ -24,7 +24,7 @@ function onRemoving(ev){
         <div className="mail-preview-from">{from}</div>
       </div>
 
-      <div className="mail-preview-details-subject">
+      <div className="mail-preview-details-subject-body">
         <span className="mail-preview-subject">{subject}</span>
         <span className="mail-preview-body"> - {body}</span>
       </div>

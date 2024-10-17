@@ -1,8 +1,94 @@
-.mail-add-form{
-
+.mail-add-form {
+  position: absolute;
+  bottom: 0;
+  right: 40px;
+  padding-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+  border-top-left-radius: 0.4rem;
+  border-top-right-radius: 0.4rem;
+  background-color: white;
+  box-shadow: 0 0 10px 2px rgba(128, 128, 128, 0.337);
 }
 
-.mail-add-form-header{
-    display: flex;
+.mail-add-form-header {
+  font-weight: 600;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 16px;
+  border-top-left-radius: 0.4rem;
+  border-top-right-radius: 0.4rem;
+  background-color: #f1f6fc;
+}
 
+.mail-add-form-header-button {
+  border: none;
+  color: #808280;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.mail-add-form-inputs {
+  padding: 0 16px;
+}
+
+.mail-add-form-inputs input {
+  font-size: 14px;
+  width: 100%;
+  height: 30px;
+  border: none;
+  font-family: Google Sans, Roboto, Arial, Helvetica, sans-serif;
+}
+
+.mail-add-form-inputs input:focus {
+  outline: none;
+}
+
+.mail-add-form-inputs-email,
+.mail-add-form-inputs-subject {
+  margin: 10px 0;
+  padding: 5px 0;
+  display: flex;
+  align-items: center;
+  color: #808280;
+  border-bottom: 1px solid #c2c2c275;
+}
+
+.mail-add-form-inputs-textarea {
+  display: flex;
+  align-items: start;
+  margin: 10px 0;
+  border-bottom: none;
+  justify-content: start;
+}
+.mail-add-form-inputs-textarea textarea {
+  width: 100%;
+  height: 400px;
+  font-size: 14px;
+  border: none;
+  resize: none;
+  font-family: Google Sans, Roboto, Arial, Helvetica, sans-serif;
+}
+
+.mail-add-form-inputs-textarea textarea:focus {
+  outline: none;
+}
+
+.mail-add-form-submit-button {
+  font-weight: 600;
+  font-family: Google Sans, Roboto, Arial, Helvetica, sans-serif;
+  color: white;
+  align-self: start;
+  margin: 0 16px;
+  padding: 10px 25px;
+  border: none;
+  border-radius: 2rem;
+  background-color: #0b57d0;
+  cursor: pointer;
+}
+
+.mail-add-form-submit-button:hover {
+  box-shadow: 0 0 3px 0.5px #2464cc;
 }
