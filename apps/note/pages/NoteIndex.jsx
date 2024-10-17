@@ -7,6 +7,18 @@ export function NoteIndex() {
 
     const [notes, setNotes] = useState(null)
 
+    const emptyNote = {
+        type: null,
+        createdAt: null,
+        isPinned: false,
+        info: {},
+        style: {
+            backgroundColor: '#fffff'
+        },
+    }
+
+    const [note, setNote] = useState(emptyNote)
+
     useEffect(() => {
         loadNotes()
     }, [notes])
@@ -32,18 +44,22 @@ export function NoteIndex() {
             })
     }
 
+    function onEditNote(){
+
+    }
+
     if (!notes || notes.length === 0) {
         return (
             <div>
-                <AddNote></AddNote>
-                <h3>Try adding some notes! 🤩</h3>
+            <AddNote note={note} setNote={setNote} emptyNote={emptyNote}/>
+            <h3>Try adding some notes! 🤩</h3>
             </div>
         )
     }
 
     return (
         <div className="note-index">
-            <AddNote></AddNote>
+            <AddNote note={note} setNote={setNote} emptyNote={emptyNote} />
             <section>
                 <h1>Notes</h1>
             </section>

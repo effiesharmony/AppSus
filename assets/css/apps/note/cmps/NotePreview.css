@@ -7,7 +7,6 @@
     break-inside: avoid;
     min-width: 10em;
     height: fit-content;
-    background-color: pink;
     padding: 1em;
     border-radius: .7em;
     transition: 250ms;

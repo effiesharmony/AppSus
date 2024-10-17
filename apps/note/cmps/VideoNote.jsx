@@ -1,15 +1,23 @@
-export function VideoNote(){
+export function VideoNote({ onAddInfo, note }) {
+
+    // function getYoutubeId() {
+    //     if (note.info.url) {
+    //         const url = new URL(note.info.url)
+    //         console.log(ur)
+    //         if (url.hostname === 'www.youtube.com') {
+    //             const params = new URLSearchParams(url.search)
+    //             return params.get('v')
+    //         }
+    //     }
+    // }
 
     return (
-        <form className="vid-note">
-            <input type="text" placeholder="Title" id="title" />
-            <br />
-            <textarea placeholder="Enter image URL..." id="noteVid" ></textarea>
-            <br />
-            <ColorInput onChangeColor={onSetColor} chosenColor={backgroundColor} />
-            <br />
-            <button type="submit">Add Note</button>
-            <button>Cancel</button>
-        </form>
+        <div className="vid-note">
+            <input onInput={(ev) => onAddInfo(ev.target.value)} type="text" placeholder="Enter Video URL..." id="noteVid" />
+            
+            {/* <iframe width="420" height="315"
+                src={`https://www.youtube.com/embed/${getYoutubeId()}`}>
+            </iframe> */}
+        </div>
     )
 }
