@@ -22,16 +22,22 @@ export function NotePreview({ note, onRemoveNote }) {
         notesService.save(note)
     }
 
-    function onDuplicateNote(){
+    function onDuplicateNote() {
         notesService.get(note.id)
-        .then(newNote => {
-            newNote.id = null
-            notesService.save(newNote)
-        })
-        .catch(err => {
-            console.log('Problem duplicating Note:', err)
-        })
+            .then(newNote => {
+                newNote.id = null
+                notesService.save(newNote)
+            })
+            .catch(err => {
+                console.log('Problem duplicating Note:', err)
+            })
     }
+
+    function onPin(){
+        note.isPinned = !note.isPinned
+        notesService.save(note)
+    }
+
 
     return (
         <article style={{ backgroundColor: note.style.backgroundColor }} className="note-preview">
@@ -51,12 +57,13 @@ export function NotePreview({ note, onRemoveNote }) {
                 </ul>
             }
             <section className="btns">
+                <button className="pin-btn" onClick={onPin}><i className="fa-solid fa-thumbtack"></i></button>
                 <button className="delete-btn" onClick={() => onRemoveNote(note.id)}><i className="fa-solid fa-trash"></i></button>
-                <button onClick={() => setIsColorInputShown(!isColorInputShown)} className="color-btn">
+                <button className="color-btn" onClick={() => setIsColorInputShown(!isColorInputShown)}>
                     <i className="fa-solid fa-palette"></i>
                 </button>
                 {isColorInputShown && <ColorPicker chosenColor={note.style.backgroundColor} onChangeColor={onChangeColor} />}
-                <button className="edit"><Link to={`/note/${note.id}`}><i className="fa-solid fa-pen"></i></Link></button>
+                <button className="edit-btn"><Link to={`/note/${note.id}`}><i className="fa-solid fa-pen"></i></Link></button>
                 <button onClick={onDuplicateNote} className="duplicate"><i className="fa-solid fa-copy"></i></button>
             </section>
         </article>
