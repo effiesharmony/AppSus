@@ -42,3 +42,7 @@
 .delete-btn:hover, .color-btn:hover{
   color: #a560ef;
 }
+
+.strike{
+    text-decoration: line-through;
+}

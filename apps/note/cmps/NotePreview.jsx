@@ -11,8 +11,13 @@ export function NotePreview({ note, onRemoveNote }) {
         notesService.save(note)
     }
 
-    function onCheck(value, index){
+    function onCheck(value, index) {
         note.info.todos[index].isChecked = value
+        notesService.save(note)
+    }
+
+    function onDeleteItem(index){
+        note.info.todos.splice(index, 1)
         notesService.save(note)
     }
 
@@ -22,12 +27,16 @@ export function NotePreview({ note, onRemoveNote }) {
             {note.type === 'NoteTxt' && <p>{note.info.txt}</p>}
             {note.type === 'NoteImg' && <img src={note.info.url} />}
             {note.type === 'NoteVid' && <a href={note.info.url} target="_blank">{note.info.url}</a>}
-            {note.type === 'NoteTodos' && note.info.todos.map((todo, index) =>
-                <div key={index}>
-                    <input onChange={(ev) => onCheck(ev.target.checked, index)} type="checkbox" checked={todo.isChecked}/>
-                    <p>{todo.text}</p>
-                </div>
-            )
+            {note.type === 'NoteTodos' &&
+                <ul>
+                    {note.info.todos.map((todo, index) =>
+                        <li key={index}>
+                            <input onChange={(ev) => onCheck(ev.target.checked, index)} type="checkbox" checked={todo.isChecked} />
+                            <span className={`${todo.isChecked ? 'strike' : 'todo-txt'}`}>{todo.text}</span>
+                            <button onClick={() => onDeleteItem(index)} type="button" className="list-delete-btn">X</button>
+                        </li>
+                    )}
+                </ul>
             }
             <section className="btns">
                 <button className="delete-btn" onClick={() => onRemoveNote(note.id)}><i className="fa-solid fa-trash"></i></button>
