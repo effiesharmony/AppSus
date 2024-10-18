@@ -11,6 +11,11 @@ export function NotePreview({ note, onRemoveNote }) {
         notesService.save(note)
     }
 
+    function onCheck(value, index){
+        note.info.todos[index].isChecked = value
+        notesService.save(note)
+    }
+
     return (
         <article style={{ backgroundColor: note.style.backgroundColor }} className="note-preview">
             <h2>{note.info.title}</h2>
@@ -19,7 +24,7 @@ export function NotePreview({ note, onRemoveNote }) {
             {note.type === 'NoteVid' && <a href={note.info.url} target="_blank">{note.info.url}</a>}
             {note.type === 'NoteTodos' && note.info.todos.map((todo, index) =>
                 <div key={index}>
-                    <input type="checkbox" checked={todo.isChecked}/>
+                    <input onChange={(ev) => onCheck(ev.target.checked, index)} type="checkbox" checked={todo.isChecked}/>
                     <p>{todo.text}</p>
                 </div>
             )
