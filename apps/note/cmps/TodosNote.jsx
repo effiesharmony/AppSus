@@ -1,7 +1,11 @@
-const { useState } = React
-export function TodosNote({ onAddInfo }) {
+const { useState, useEffect } = React
+export function TodosNote({ onAddInfo, note }) {
 
     const [todosList, setTodosList] = useState([])
+
+    useEffect(() => {
+        if (note.info.todos) setTodosList(note.info.todos)
+    }, [])
 
     function addListValues(newInput) {
         setTodosList(newInput)

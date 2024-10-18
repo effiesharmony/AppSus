@@ -13,8 +13,8 @@ export function VideoNote({ onAddInfo, note }) {
 
     return (
         <div className="vid-note">
-            <input onInput={(ev) => onAddInfo(ev.target.value)} type="text" placeholder="Enter Video URL..." id="noteVid" />
-            <meta property="og:image" content="https://www.youtube.com/watch?v=SF7KCsvcw2g&ab_channel=AsapSCIENCE"/>
+            <input onInput={(ev) => onAddInfo(ev.target.value)} type="text" placeholder="Enter Video URL..." id="noteVid" value={note.info.url ? note.info.url : ''} />
+            <meta property="og:image" content="https://www.youtube.com/watch?v=SF7KCsvcw2g&ab_channel=AsapSCIENCE" />
             {/* <iframe width="420" height="315"
                 src={`https://www.youtube.com/embed/${getYoutubeId()}`}>
             </iframe> */}

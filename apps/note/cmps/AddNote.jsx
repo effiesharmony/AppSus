@@ -3,15 +3,16 @@ const { useState, useEffect } = React
 import { notesService } from "../services/note.service.js"
 import { NoteTitle } from "./NoteTitle.jsx"
 import { AddNoteBtns } from "./AddNoteBtns.jsx"
+import { emptyNote } from "../services/note.service.js"
 
 import { TextNote } from "./TextNote.jsx"
 import { TodosNote } from "./TodosNote.jsx"
 import { ImageNote } from "./ImageNote.jsx"
 import { VideoNote } from "./VideoNote.jsx"
 
-export function AddNote({ note, setNote, emptyNote }) {
+export function AddNote({ note, setNote }) {
 
-    const [isColorInputShown, setisColorInputShown] = useState(false)
+    const [isColorInputShown, setIsColorInputShown] = useState(false)
 
     function onSetColor(color) {
         let newNote = { ...note }
@@ -45,7 +46,7 @@ export function AddNote({ note, setNote, emptyNote }) {
         let newNote = { ...note }
         newNote.createdAt = Date.now()
         setNote(newNote)
-        notesService.addNote(newNote)
+        notesService.save(newNote)
         setNote(emptyNote)
     }
 
@@ -70,17 +71,17 @@ export function AddNote({ note, setNote, emptyNote }) {
 
     return (
         <section style={{ backgroundColor: note.style.backgroundColor }} className="add-note-container">
-            <form onSubmit={onSaveNote} className="add-note">
+            <form className="add-note">
                 <NoteTitle onSetNoteTitle={onSetNoteTitle} onSetNoteType={onSetNoteType} note={note}/>
-                {note.type === 'NoteTxt' && <TextNote onAddInfo={onAddInfo} />}
-                {note.type === 'NoteTodos' && <TodosNote onAddInfo={onAddInfo} />}
+                {note.type === 'NoteTxt' && <TextNote onAddInfo={onAddInfo} note={note}/>}
+                {note.type === 'NoteTodos' && <TodosNote onAddInfo={onAddInfo} note={note}/>}
                 {note.type === 'NoteImg' && <ImageNote onAddInfo={onAddInfo} note={note} />}
                 {note.type === 'NoteVid' && <VideoNote onAddInfo={onAddInfo} note={note} />}
                 {note.type &&
                     <div className="add-note-btns">
                         <AddNoteBtns onCancel={onCancel} onSetColor={onSetColor}
                             backgroundColor={note.style.backgroundColor} isColorInputShown={isColorInputShown}
-                            setisColorInputShown={setisColorInputShown} />
+                            setIsColorInputShown={setIsColorInputShown} onSaveNote={onSaveNote}/>
                     </div>}
             </form>
         </section>

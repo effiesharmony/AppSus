@@ -1,10 +1,12 @@
 import { notesService } from "../services/note.service.js"
 import { ColorPicker } from "./ColorPicker.jsx"
+import { EditNote } from "./EditNote.jsx"
 const { useState, useEffect } = React
+const { Link } = ReactRouterDOM
 
 export function NotePreview({ note, onRemoveNote }) {
 
-    const [isColorInputShown, setisColorInputShown] = useState(false)
+    const [isColorInputShown, setIsColorInputShown] = useState(false)
 
     function onChangeColor(color) {
         note.style.backgroundColor = color
@@ -16,7 +18,7 @@ export function NotePreview({ note, onRemoveNote }) {
         notesService.save(note)
     }
 
-    function onDeleteItem(index){
+    function onDeleteItem(index) {
         note.info.todos.splice(index, 1)
         notesService.save(note)
     }
@@ -40,10 +42,11 @@ export function NotePreview({ note, onRemoveNote }) {
             }
             <section className="btns">
                 <button className="delete-btn" onClick={() => onRemoveNote(note.id)}><i className="fa-solid fa-trash"></i></button>
-                <button onClick={() => setisColorInputShown(!isColorInputShown)} className="color-btn">
+                <button onClick={() => setIsColorInputShown(!isColorInputShown)} className="color-btn">
                     <i className="fa-solid fa-palette"></i>
                 </button>
                 {isColorInputShown && <ColorPicker chosenColor={note.style.backgroundColor} onChangeColor={onChangeColor} />}
+                <button className="edit"><Link to={`/note/${note.id}`}>Edit</Link></button>
             </section>
         </article>
     )

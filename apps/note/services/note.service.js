@@ -4,6 +4,18 @@ import { utilService } from "../../../services/util.service.js"
 
 const NOTES_KEY = 'notesDB'
 
+export const emptyNote = {
+    type: null,
+    createdAt: null,
+    isPinned: false,
+    info: {
+        title: ''
+    },
+    style: {
+        backgroundColor: '#fffff'
+    },
+}
+
 const notes = [
     {
         id: 'n101',

@@ -1,5 +1,6 @@
 import { NotePreview } from "../cmps/NotePreview.jsx"
 import { notesService } from "../services/note.service.js"
+import { emptyNote } from "../services/note.service.js"
 import { AddNote } from "../cmps/AddNote.jsx"
 import { NoteFilter } from "../pages/NoteFilter.jsx"
 
@@ -9,17 +10,6 @@ export function NoteIndex() {
 
     const [notes, setNotes] = useState(null)
     const [filterBy, setFilterBy] = useState(notesService.getDefaultFilter())
-
-    const emptyNote = {
-        type: null,
-        createdAt: null,
-        isPinned: false,
-        info: {},
-        style: {
-            backgroundColor: '#fffff'
-        },
-    }
-
     const [note, setNote] = useState(emptyNote)
 
     useEffect(() => {
@@ -55,7 +45,7 @@ export function NoteIndex() {
         return (
             <div>
             <NoteFilter setFilterBy={setFilterBy} filterBy={filterBy}/>
-            <AddNote note={note} setNote={setNote} emptyNote={emptyNote}/>
+            <AddNote note={note} setNote={setNote}/>
             <h3>Try adding some notes! 🤩</h3>
             </div>
         )
@@ -64,7 +54,7 @@ export function NoteIndex() {
     return (
         <div className="note-index">
             <NoteFilter setFilterBy={setFilterBy} filterBy={filterBy}/>
-            <AddNote note={note} setNote={setNote} emptyNote={emptyNote} />
+            <AddNote note={note} setNote={setNote} />
             <section>
                 <h1>Notes</h1>
             </section>
