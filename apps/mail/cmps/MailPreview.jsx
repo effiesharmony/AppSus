@@ -52,7 +52,7 @@ export function MailPreview({ mail, onRemoveMail, onMarkAsRead, onMarkStar, onDr
 
       <div className="mail-preview-detail-delete-btn">
         <button className="mail-preview-delete-btn" onClick={onRemoving}>
-          <i className="fa-solid fa-trash"></i>
+        <i className="fa-solid fa-trash-can"></i>
         </button>
       </div>
     </div>

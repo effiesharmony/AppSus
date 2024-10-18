@@ -110,9 +110,9 @@ export function MailIndex() {
   if (!mails) return <div>Loading...</div>;
   return (
     <main className="main-mail-index">
-      <div className="main-mail-index-btns-list">
+      <div className="main-mail-index-page">
         <div className="main-mail-index-btn">
-          <button className="main-mail-index-btn-add-mail" onClick={onAddMail}>
+          <button className="main-mail-index-btn-add-mail" onClick={onAddMail} title="Compose">
             <i className="fa-solid fa-pen"></i>
           </button>
           <MailFilter filterBy={filterBy} onSetFilter={onSetFilter} />
