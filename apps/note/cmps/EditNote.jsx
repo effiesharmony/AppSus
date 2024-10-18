@@ -1,7 +1,7 @@
 import { AddNote } from "./AddNote.jsx"
 import { notesService } from "../services/note.service.js"
 const { useState, useEffect } = React
-const { useParams, Link } = ReactRouterDOM
+const { useParams } = ReactRouterDOM
 
 
 export function EditNote() {

@@ -1,7 +1,6 @@
 import { notesService } from "../services/note.service.js"
 import { ColorPicker } from "./ColorPicker.jsx"
-import { EditNote } from "./EditNote.jsx"
-const { useState, useEffect } = React
+const { useState } = React
 const { Link } = ReactRouterDOM
 
 export function NotePreview({ note, onRemoveNote }) {
@@ -21,6 +20,17 @@ export function NotePreview({ note, onRemoveNote }) {
     function onDeleteItem(index) {
         note.info.todos.splice(index, 1)
         notesService.save(note)
+    }
+
+    function onDuplicateNote(){
+        notesService.get(note.id)
+        .then(newNote => {
+            newNote.id = null
+            notesService.save(newNote)
+        })
+        .catch(err => {
+            console.log('Problem duplicating Note:', err)
+        })
     }
 
     return (
@@ -46,7 +56,8 @@ export function NotePreview({ note, onRemoveNote }) {
                     <i className="fa-solid fa-palette"></i>
                 </button>
                 {isColorInputShown && <ColorPicker chosenColor={note.style.backgroundColor} onChangeColor={onChangeColor} />}
-                <button className="edit"><Link to={`/note/${note.id}`}>Edit</Link></button>
+                <button className="edit"><Link to={`/note/${note.id}`}><i className="fa-solid fa-pen"></i></Link></button>
+                <button onClick={onDuplicateNote} className="duplicate"><i className="fa-solid fa-copy"></i></button>
             </section>
         </article>
     )

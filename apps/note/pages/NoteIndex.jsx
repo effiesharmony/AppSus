@@ -37,10 +37,6 @@ export function NoteIndex() {
             })
     }
 
-    function onEditNote(){
-
-    }
-
     if (!notes || notes.length === 0) {
         return (
             <div>
