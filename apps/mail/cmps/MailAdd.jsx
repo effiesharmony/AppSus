@@ -1,7 +1,7 @@
 import { mailService } from "../services/mail.service.js";
 const { useState } = React;
 
-export function MailAdd({ onCancel }) {
+export function MailAdd({ onSentMail, onCancel }) {
   const [subject, setSubject] = useState("");
   const [body, setBody] = useState("");
   const [to, setTo] = useState("");
@@ -11,38 +11,59 @@ export function MailAdd({ onCancel }) {
     fullName: "Emilia Clarke",
   };
 
-  function onMailAdd(ev) {
+  function mailAdd(ev) {
     ev.preventDefault();
     const newMail = {
       createdAt: Date.now(),
       subject: subject,
       body: body,
-      isRead: false,
+      isRead: true,
       sentAt: Date.now(),
       removedAt: null,
       from: loggedInUser.email,
       to: to,
+      status:'sent'
     };
+    mailService.save(newMail)
+    .then(() => {
+        setSubject("");
+        setBody("");
+        setTo("");
+    })
+    .catch((err) => console.log("Error with sending a mail", err));
+    onSentMail()
+  }
 
-    mailService
-      .save(newMail)
-      .then(() => {
-        setSubject("")
-        setBody("")
-        setTo("")
-        console.log(newMail);
-        
-      })
-      .catch((err) => console.log("Error with sending a mail", err));
+  function mailDraft(ev) {
+    ev.preventDefault();
+    const newDraft = {
+      createdAt: Date.now(),
+      subject: subject,
+      body: body,
+      isRead: true,
+      sentAt: null,
+      removedAt: null,
+      from: loggedInUser.email,
+      to: to,
+      status:'draft'
+    };
+    mailService.save(newDraft)
+    .then(() => {
+        setSubject("");
+        setBody("");
+        setTo("");
+    })
+    .catch((err) => console.log("Error with sending a mail", err));
+    onCancel()
   }
 
   return (
-    <form onSubmit={onMailAdd}>
+    <form onSubmit={mailAdd}>
       <div className="mail-add-form">
 
         <div className="mail-add-form-header">
           <div className="mail-add-form-header-title">New Message</div>
-          <button className="mail-add-form-header-button" onClick={onCancel}>X</button>
+          <button className="mail-add-form-header-button" onClick={mailDraft}>X</button>
         </div>
 
         <div className="mail-add-form-inputs">

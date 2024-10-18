@@ -1,19 +1,31 @@
-const { useNavigate } = ReactRouterDOM
-const { Link } = ReactRouterDOM
+import { mailService } from "../services/mail.service.js";
 
-export function MailPreview({ mail, onRemoveMail }) {
-  const { subject, body, from, sentAt, isRead } = mail
-  const date = new Date(sentAt).toLocaleString()
-  const navigate = useNavigate()
+const { useNavigate } = ReactRouterDOM;
+
+export function MailPreview({ mail, onRemoveMail, onMarkAsRead, onMarkStar, onDraftClick }) {
+  const { subject, body, from, sentAt, isRead, isStarred } = mail;
+  const date = new Date(sentAt).toLocaleString();
+  const navigate = useNavigate();
 
   function onMailClick() {
-    navigate(`/mail/${mail.id}`)
+    if (mail.status !== 'draft') {
+      onMarkAsRead(mail.id);
+      navigate(`/mail/${mail.id}`);
+    } else if (mail.status === 'draft'){
+      onDraftClick(mail.id)
+    }
   }
 
-function onRemoving(ev){
-  ev.stopPropagation()
-  onRemoveMail(mail.id)
-}
+  function onMailStarClick(ev) {
+    ev.stopPropagation();
+    console.log('Star clicked for mailId:', mail.id)
+    onMarkStar(mail.id)
+  }
+
+  function onRemoving(ev) {
+    ev.stopPropagation();
+    onRemoveMail(mail.id);
+  }
 
   return (
     <div
@@ -21,6 +33,11 @@ function onRemoving(ev){
       onClick={onMailClick}
     >
       <div className="mail-preview-details-from">
+        <div className="mail-preview-details-star"
+        onClick={onMailStarClick}
+        style={{ color: isStarred ? 'gold' : 'gray' }}>
+          {isStarred ? "★" : "☆"}
+          </div>
         <div className="mail-preview-from">{from}</div>
       </div>
 
@@ -34,9 +51,10 @@ function onRemoving(ev){
       </div>
 
       <div className="mail-preview-detail-delete-btn">
-      <button className="mail-preview-delete-btn" onClick={onRemoving}><i className="fa-solid fa-trash"></i></button>
+        <button className="mail-preview-delete-btn" onClick={onRemoving}>
+          <i className="fa-solid fa-trash"></i>
+        </button>
       </div>
-      
     </div>
   );
 }

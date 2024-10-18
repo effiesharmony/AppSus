@@ -6,6 +6,7 @@ export const utilService = {
     padNum,
     getDayName,
     getMonthName,
+    getTruthyValues,
 }
 
 function makeId(length = 6) {
@@ -69,4 +70,16 @@ export function debounce(func, delay) {
             func(...args)
         }, delay)
     }
+}
+
+export function getTruthyValues(obj) {
+    const newObj = {}
+    for (const key in obj) {
+        const value = obj[key]
+        if (value || value === 0) {
+            newObj[key] = value
+        }
+    }
+    return newObj
+
 }

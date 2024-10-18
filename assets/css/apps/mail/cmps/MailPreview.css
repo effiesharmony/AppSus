@@ -41,6 +41,18 @@
   display: none;
 }
 
+.mail-preview-details-from{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.mail-preview-details-star{
+  font-size: 1.3rem;
+  cursor: pointer;
+  z-index: 1;
+}
+
 .mail-preview-details-from {
   padding-right: 20px;
   font-family: Google Sans-Bold, san-serif;
