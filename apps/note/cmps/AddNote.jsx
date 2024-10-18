@@ -35,6 +35,11 @@ export function AddNote({ note, setNote, emptyNote }) {
         setNote(newNote)
     }
 
+    // function onSetNoteTitle(ev) {
+    //     const { value } = ev.target
+    //     setNote(prevNote => ({ ...prevNote, info: { title: value }}))
+    // }
+
     function onSaveNote(ev) {
         // ev.preventDefault()
         let newNote = { ...note }

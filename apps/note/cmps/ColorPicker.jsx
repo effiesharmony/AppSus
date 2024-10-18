@@ -21,7 +21,7 @@ export function ColorPicker({ chosenColor, onChangeColor }) {
                 {colors.map(color => (
                     <div
                         key={color}
-                        className={`color ${color === chosenColor ? 'chosen' : ''}`}
+                        className={`color ${color} ${color === chosenColor ? 'chosen' : ''}`}
                         style={{ backgroundColor: color}}
                         onClick={() => onChangeColor(color)}
                     ></div>

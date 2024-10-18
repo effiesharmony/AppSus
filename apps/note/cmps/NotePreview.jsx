@@ -30,7 +30,6 @@ export function NotePreview({ note, onRemoveNote }) {
                     <i className="fa-solid fa-palette"></i>
                 </button>
                 {isColorInputShown && <ColorPicker chosenColor={note.style.backgroundColor} onChangeColor={onChangeColor} />}
-                {/* <button>Edit</button> */}
             </section>
         </article>
     )

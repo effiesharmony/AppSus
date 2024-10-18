@@ -52,19 +52,16 @@ export const notesService = {
     remove,
     save,
     addNote,
+    getDefaultFilter,
 }
 
-function query() {
+function query(filterBy = {}) {
     return asyncStorageService.query(NOTES_KEY, 0)
         .then(notes => {
-            // if (filterBy.title) {
-            //     const regExp = new RegExp(filterBy.title, 'i')
-            //     notes = notes.filter(notes => regExp.test(notes.info.title))
-            // }
-            // if (filterBy.txt) {
-            //     const regExp = new RegExp(filterBy.txt, 'i')
-            //     notes = notes.filter(notes => regExp.test(notes.info.txt))
-            // }
+            if (filterBy.txt) {
+                const regExp = new RegExp(filterBy.txt, 'i')
+                notes = notes.filter(notes => regExp.test(notes.info.txt) || regExp.test(notes.info.title) || regExp.test(notes.info.url) )
+            }
             return notes
         })
 }
@@ -87,4 +84,8 @@ function save(note) {
 
 function addNote(note) {
     return asyncStorageService.post(NOTES_KEY, note)
+}
+
+function getDefaultFilter() {
+    return { txt: '' }
 }
