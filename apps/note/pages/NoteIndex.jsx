@@ -40,26 +40,36 @@ export function NoteIndex() {
     if (!notes || notes.length === 0) {
         return (
             <div>
-            <NoteFilter setFilterBy={setFilterBy} filterBy={filterBy}/>
-            <AddNote note={note} setNote={setNote}/>
-            <h3>Try adding some notes! 🤩</h3>
+                <NoteFilter setFilterBy={setFilterBy} filterBy={filterBy} />
+                <AddNote note={note} setNote={setNote} />
+                <h3>Try adding some notes! 🤩</h3>
             </div>
         )
     }
 
     return (
         <div className="note-index">
-            <NoteFilter setFilterBy={setFilterBy} filterBy={filterBy}/>
+            <NoteFilter setFilterBy={setFilterBy} filterBy={filterBy} />
             <AddNote note={note} setNote={setNote} />
-            <section>
-                <h1>Notes</h1>
-            </section>
             <section className="note-preview-container">
-                {notes.map(note =>
-                    <section key={note.id} className="note">
-                        <NotePreview note={note} onRemoveNote={onRemoveNote}/>
-                    </section>
-                )}
+                <div className="pinned-notes">
+                    {notes.some(note => note.isPinned) && <h2 className="pinned-notes-title">Pinned</h2>}
+                    {notes.map(note => note.isPinned ?
+                            <section key={note.id} className="pinned-notes">
+                                <NotePreview note={note} onRemoveNote={onRemoveNote} />
+                            </section> : null
+                    )}
+                </div>
+
+                <div className="other-notes">
+                    <h2 className="other-notes-title">Others</h2>
+                    {notes.map(note => !note.isPinned ?
+                            <section key={note.id} className="pinned-notes">
+                                <NotePreview note={note} onRemoveNote={onRemoveNote} />
+                            </section> : null
+                    )}
+                </div>
+
             </section>
         </div>
     )
