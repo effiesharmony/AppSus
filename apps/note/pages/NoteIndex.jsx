@@ -63,7 +63,7 @@ export function NoteIndex() {
 
     return (
         <div className="note-index">
-            <NoteFilter setFilterBy={setFilterBy} />
+            <NoteFilter setFilterBy={setFilterBy} filterBy={filterBy}/>
             <AddNote note={note} setNote={setNote} emptyNote={emptyNote} />
             <section>
                 <h1>Notes</h1>
