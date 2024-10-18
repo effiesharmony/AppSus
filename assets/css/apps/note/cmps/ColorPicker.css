@@ -1,28 +1,24 @@
-*{
+* {
     box-sizing: border-box;
 }
 
 .colors-container {
-    width: fit-content;
-    border: 1px solid rgb(203, 202, 202);
+    position: absolute;
+    /* left: -10px; */
     display: flex;
+    background-color: aliceblue;
+    width: fit-content;
     gap: 3px;
     padding: 5px;
+    z-index: 1;
+    border-radius: 12px;
+    border: .7px solid rgb(219, 218, 218);
 }
 
 .color-input .color {
     border-radius: 50%;
-    /* margin: 3px; */
     height: 30px;
     width: 30px;
     cursor: pointer;
-    /* border: 2px solid white; */
-}
-
-.color-input .chosen {
-    border: 2px solid #a142f4;
-}
-
-.color-input .color:hover:not(.chosen){
-    border: 2px solid black;
+    border: .7px solid rgb(219, 218, 218);
 }

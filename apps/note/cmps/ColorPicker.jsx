@@ -1,4 +1,4 @@
-export function ColorInput({ chosenColor, onChangeColor }) {
+export function ColorPicker({ chosenColor, onChangeColor }) {
 
     const colors = [
         '#faafa8',
@@ -21,7 +21,7 @@ export function ColorInput({ chosenColor, onChangeColor }) {
                 {colors.map(color => (
                     <div
                         key={color}
-                        className={`color ${color === chosenColor ? 'chosen' : ''}`}
+                        className={`color ${color} ${color === chosenColor ? 'chosen' : ''}`}
                         style={{ backgroundColor: color}}
                         onClick={() => onChangeColor(color)}
                     ></div>
