@@ -5,10 +5,10 @@ export function AppHeader() {
     return (
     <header className="app-header">
         <Link to="/">
-        <img className="hamburger-btn" src="./assets/img/hamburger-btn.svg" alt="" />
         <div className="logo-img">
           <img src="../logo.imgs/logo.png" alt="" />
         </div>
+        {/* <img className="hamburger-btn" src="./assets/img/hamburger-btn.svg" alt="" /> */}
         </Link>
         <nav>
             <NavLink to="/">Home</NavLink>
