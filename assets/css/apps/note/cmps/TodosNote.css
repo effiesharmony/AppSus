@@ -1,36 +1,33 @@
-.todos-list>*{
+.todos-list>* {
     list-style: none;
 }
 
-.todos-list li{
+.todos-list li {
+    position: relative;
     display: flex;
     width: 100%;
 }
 
-.list-item-txt{
+.list-item-txt {
     grid-column: 1/-1;
     width: 100%;
 }
 
-.list-delete-btn{
-
-}
-
-.todos-list li>*{
+.todos-list li>* {
     border: none;
     outline: none;
 }
 
-.list-add-btn:hover{
-   cursor: pointer;
+.list-add-btn:hover {
+    cursor: pointer;
 }
 
-.todos-list li:focus{
+.todos-list li:focus {
     border-top: 1px solid var(--notes-main-color2);
     border-bottom: 1px solid var(--notes-main-color2);
 }
 
-ul{
+ul {
     padding: 10px;
     margin: 0;
 }

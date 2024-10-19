@@ -2,6 +2,10 @@
     box-sizing: border-box;
 }
 
+.note-index{
+    transition: 200ms;
+}
+
 .pinned-notes, .other-notes {
     columns: auto 250px;
     break-inside: avoid;

@@ -12,6 +12,8 @@
 
     /* notes */
     --notes-main-bg-color: #fff;
+    /* filter bgc: */
+    --notes-search-bg-color: #f1f3f4;
     /*  btns hover circles color: */
     --notes-main-color2: #dee0e4;
     /* font color: */

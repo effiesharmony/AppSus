@@ -16,8 +16,13 @@
     border: .7px solid var(--notes-main-color2);
 }
 
+.note-preview-container {
+    transition: 200ms;
+}
+
 .note-preview h2 {
     margin-top: .4em;
+    margin-bottom: .7em;
 }
 
 .note-preview>* {
@@ -50,8 +55,8 @@ button {
     opacity: 0;
 }
 
-.note-preview button{
-    padding: 15px;
+.note-preview button {
+    padding: 8px;
 }
 
 .pin-btn {
@@ -67,6 +72,17 @@ button {
     text-decoration: line-through;
 }
 
-li {
-    list-style: none;
+.preview-li {
+    display: grid;
+    grid-template-columns: 1fr 10fr 3fr;
+    grid-auto-flow: column;
+    align-items: center;
+}
+
+.preview-li .list-delete-btn {
+    justify-self: end;
+}
+
+.preview-li .todo-txt{
+    margin-left: 8px;
 }

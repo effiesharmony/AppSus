@@ -71,7 +71,7 @@
 .title-btns-container {
     background-color: transparent;
     position: absolute;
-    right: 1em;
+    right: .5em;
 }
 
 .add-note-btns-container {
@@ -106,4 +106,22 @@
 
 .todos-note {
     padding: 12px;
+}
+
+.image-note input{
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+.vid-note input{
+    width: 100%;
+}
+
+.add-note-btns-container .close-btn:hover,
+.add-note-btns-container .save-btn:hover{
+    border-radius: 5px;
+}
+
+.add-note-btns-container .close-btn{
+    margin-right: 10px;
 }

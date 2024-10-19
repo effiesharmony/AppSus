@@ -51,9 +51,9 @@ export function NotePreview({ note, onRemoveNote }) {
             {note.type === 'NoteTodos' &&
                 <ul>
                     {note.info.todos.map((todo, index) =>
-                        <li key={index}>
+                        <li key={index} className="preview-li">
                             <input onChange={(ev) => onCheck(ev.target.checked, index)} type="checkbox" checked={todo.isChecked} />
-                            <span className={`${todo.isChecked ? 'strike' : 'todo-txt'}`}>{todo.text}</span>
+                            <span className={`${todo.isChecked ? 'todo-txt strike' : 'todo-txt'}`}>{todo.text}</span>
                             <button onClick={() => onDeleteItem(index)} type="button" className="list-delete-btn">
                                 <img src="../../../assets/img/X.icon.svg" alt="" />
                             </button>
