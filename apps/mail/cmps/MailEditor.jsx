@@ -5,10 +5,9 @@ export function MailEditor({ editingDraft, onSentMail, onCancel }) {
   const [to, setTo] = useState(editingDraft ? editingDraft.to : "");
   const [subject, setSubject] = useState(editingDraft ? editingDraft.subject : "");
   const [body, setBody] = useState(editingDraft ? editingDraft.body : "");
-
   const loggedInUser = {
-    email: "emilia@appsus.com",
-    fullName: "Emilia Clarke",
+    email: "valery@appsus.com",
+    fullName: "Valery Vi",
   };
 
     useEffect(() => {

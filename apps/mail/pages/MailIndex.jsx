@@ -22,6 +22,12 @@ export function MailIndex() {
     loadMails();
   }, [filterBy]);
 
+  useEffect(() => {
+    if(mails.some((mail) => mail.isNote)){
+      setIsEditingDraft(true)
+    }
+  }, [mails]);
+
   function loadMails() {
     mailService
       .query(filterBy)

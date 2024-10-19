@@ -5,20 +5,20 @@ export function MailAdd({ sentMail, cancelAddMail }) {
   const [subject, setSubject] = useState("");
   const [body, setBody] = useState("");
   const [to, setTo] = useState("");
-
+  const createdAt = new Date()
   const loggedInUser = {
-    email: "emilia@appsus.com",
-    fullName: "Emilia Clarke",
+    email: "valery@appsus.com",
+    fullName: "Valery Vi",
   };
 
   function mailAdd(ev) {
     ev.preventDefault();
     const newMail = {
-      createdAt: Date.now(),
+      createdAt: new Date(createdAt),
       subject: subject || '(no subject)',
       body: body || '(no body)',
       isRead: true,
-      sentAt: Date.now(),
+      sentAt: new Date(createdAt),
       removedAt: null,
       from: loggedInUser.email,
       to: to,
@@ -37,7 +37,7 @@ export function MailAdd({ sentMail, cancelAddMail }) {
   function mailDraft(ev) {
     ev.preventDefault();
     const newDraft = {
-      createdAt: Date.now(),
+      createdAt: new Date(createdAt),
       subject: subject || '(no subject)',
       body: body || '(no body)',
       isRead: true,
