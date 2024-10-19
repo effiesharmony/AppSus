@@ -1,10 +1,10 @@
 import { mailService } from "../services/mail.service.js";
 import { utilService } from "../../../services/util.service.js";
-import { showErrorMsg, showSuccessMsg } from "../../../services/event-bus.service.js"
+import {showErrorMsg,showSuccessMsg} from "../../../services/event-bus.service.js";
 import { MailList } from "../cmps/MailList.jsx";
 import { MailEditor } from "../cmps/MailEditor.jsx";
 import { MailFilter } from "../cmps/MailFilter.jsx";
-import { UserMsg } from "../cmps/UserMsg.jsx"
+import { UserMsg } from "../cmps/UserMsg.jsx";
 const { useState, useEffect } = React;
 const { useSearchParams } = ReactRouterDOM;
 
@@ -23,8 +23,12 @@ export function MailIndex() {
   }, [filterBy]);
 
   useEffect(() => {
-    if(mails.some((mail) => mail.isNote)){
-      setIsEditingDraft(true)
+    if (mails) {
+      let noteMails = mails.filter((mail) => mail.isNote);
+          if(noteMails.length > 0){
+            setEditingDraft(noteMails[0])
+            setIsEditingDraft(true)
+          }
     }
   }, [mails]);
 
@@ -39,21 +43,21 @@ export function MailIndex() {
     const updatedMails = mails.map((mail) => {
       if (mail.id === mailId) {
         if (mail.status !== "trash") {
-          const updatedMail = { ...mail, status: "trash" }
-          mailService.save(updatedMail)
-          showSuccessMsg("Mail added to trash")
-          return updatedMail
+          const updatedMail = { ...mail, status: "trash" };
+          mailService.save(updatedMail);
+          showSuccessMsg("Mail added to trash");
+          return updatedMail;
         } else {
           mailService
             .remove(mailId)
             .then(() => {
               setMails((prevMails) => prevMails.filter((m) => m.id !== mailId));
-              showSuccessMsg("Mail successfully deleted")
+              showSuccessMsg("Mail successfully deleted");
             })
             .catch((err) => {
               console.log("Problems removing mail:", err);
             });
-            return mail
+          return mail;
         }
       }
       return mail;
@@ -90,33 +94,43 @@ export function MailIndex() {
   }
 
   function onCancel() {
-    setIsEditingDraft(false)
-    showSuccessMsg("Mail added to drafts")
-    loadMails()
-  }
-
-  function onSentMail() {
-    setIsEditingDraft(false)
-    showSuccessMsg("Mail has been sent")
+    setIsEditingDraft(false);
+    showSuccessMsg("Mail added to drafts");
     loadMails();
   }
 
-  function onDraftClick(mailId){
-    const draftMail = mails.find((mail) => mail.id === mailId)
-      setIsEditingDraft(true);
-      setEditingDraft(draftMail);
+  function onSentMail() {
+    setIsEditingDraft(false);
+    showSuccessMsg("Mail has been sent");
+    loadMails();
+  }
+
+  function onDraftClick(mailId) {
+    const draftMail = mails.find((mail) => mail.id === mailId);
+    setIsEditingDraft(true);
+    setEditingDraft(draftMail);
   }
 
   function onSetFilter(filterByToEdit) {
     setFilterBy((prevFilter) => ({ ...prevFilter, ...filterByToEdit }));
   }
 
-  if (!mails) return <div className="loader"><img src="/apps/mail/svg/loader.svg" alt="" /></div>;
+  if (!mails)
+    return (
+      <div className="loader">
+        <img src="/apps/mail/svg/loader.svg" alt="" />
+      </div>
+    );
   return (
     <main className="main-mail-index">
       <div className="main-mail-index-page">
         <div className="main-mail-index-btn">
-          <MailFilter filterBy={filterBy} onSetFilter={onSetFilter} onSentMail={onSentMail} onCancel={onCancel}/>
+          <MailFilter
+            filterBy={filterBy}
+            onSetFilter={onSetFilter}
+            onSentMail={onSentMail}
+            onCancel={onCancel}
+          />
         </div>
         <div>
           <MailList
@@ -132,7 +146,11 @@ export function MailIndex() {
       </div>
       <div>
         {isEditingDraft && (
-          <MailEditor editingDraft={editingDraft} onSentMail={onSentMail} onCancel={onCancel} />
+          <MailEditor
+            editingDraft={editingDraft}
+            onSentMail={onSentMail}
+            onCancel={onCancel}
+          />
         )}
       </div>
       <UserMsg />
