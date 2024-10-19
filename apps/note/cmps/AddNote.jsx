@@ -21,7 +21,17 @@ export function AddNote({ note, setNote, setNoteToEdit }) {
     }
 
     function onCancel() {
-        setNote(emptyNote)
+        setNote({
+            type: null,
+            createdAt: null,
+            isPinned: false,
+            info: {
+                title: ''
+            },
+            style: {
+                backgroundColor: '#ffffff'
+            },
+        })
         setNoteToEdit(null)
     }
 
@@ -43,12 +53,22 @@ export function AddNote({ note, setNote, setNoteToEdit }) {
     // }
 
     function onSaveNote(ev) {
-        // ev.preventDefault()
+        ev.preventDefault()
         let newNote = { ...note }
         newNote.createdAt = Date.now()
-        setNote(newNote)
-        notesService.save(newNote)
-        setNote(emptyNote)
+        notesService.save(newNote).then(() => {
+            setNote({
+                type: null,
+                createdAt: null,
+                isPinned: false,
+                info: {
+                    title: ''
+                },
+                style: {
+                    backgroundColor: '#ffffff'
+                },
+            })
+        })
         setNoteToEdit(null)
     }
 
@@ -73,7 +93,7 @@ export function AddNote({ note, setNote, setNoteToEdit }) {
 
     return (
         <section className="add-note-container">
-            <form style={{ backgroundColor: note.style.backgroundColor }} className="add-note">
+            <form onSubmit={onSaveNote} style={{ backgroundColor: note.style.backgroundColor }} className="add-note">
                 <NoteTitle onSetNoteTitle={onSetNoteTitle} onSetNoteType={onSetNoteType} note={note}/>
                 {note.type === 'NoteTxt' && <TextNote onAddInfo={onAddInfo} note={note}/>}
                 {note.type === 'NoteTodos' && <TodosNote onAddInfo={onAddInfo} note={note}/>}

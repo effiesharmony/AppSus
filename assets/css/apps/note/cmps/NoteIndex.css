@@ -4,6 +4,7 @@
 
 .note-index {
     transition: 200ms;
+    margin: 0 15px;
 }
 
 .pinned-notes,
@@ -31,7 +32,6 @@
 }
 
 .edit-dialog::backdrop {
-    /* background: var(--notes-main-color3); */
     background-color: var(--notes-main-color3);
     opacity: 0.3;
 
