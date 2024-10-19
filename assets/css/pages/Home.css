@@ -42,16 +42,3 @@
 .home span{
 color: rgb(245, 138, 156);
 }
-
-.home img {
-    height: 100vh;
-    overflow: hidden;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-  }
-  
-  .home img {
-    overflow: hidden;
-  }
