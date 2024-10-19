@@ -7,7 +7,6 @@ const { useParams } = ReactRouterDOM
 export function EditNote({ noteToEdit, setNoteToEdit }) {
 
     const [note, setNote] = useState(null)
-    // const { noteId } = useParams()
 
     function getNote() {
         notesService.get(noteToEdit)

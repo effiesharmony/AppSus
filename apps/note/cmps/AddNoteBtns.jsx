@@ -12,7 +12,7 @@ export function AddNoteBtns({ onCancel, onSetColor, backgroundColor, isColorInpu
                 {isColorInputShown && <ColorPicker onChangeColor={onSetColor} chosenColor={backgroundColor} />}
             </section>
             <section>
-                <button className="save-btn" onClick={onSaveNote}><Link to={'/notes'}>Save</Link></button>
+                <button className="save-btn">Save</button>
                 <button className="close-btn" type="button" onClick={onCancel}>Close</button>
             </section>
         </React.Fragment>
