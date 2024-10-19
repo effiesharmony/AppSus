@@ -1,0 +1,41 @@
+.about{
+    font-family: Google Sans;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 100px;
+    margin-top: 50px;
+    text-align: center;
+}
+
+.about-valery, .about-effie{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    width: auto;
+    padding: 20px;
+    border-radius: 1rem;
+    box-shadow: 0 0 5px 1px rgba(255, 205, 205, 0.933);
+}
+
+.about-valery img, .about-effie img{
+    width: 250px;
+    height: 300px;
+    overflow: hidden;
+}
+
+.about-valery h1, .about-effie h1{
+    font-size: 1.2rem;
+    width: 250px;
+    font-family: Google Sans-Bold;
+    letter-spacing: 0.05rem;
+}
+
+.about-valery h2, .about-effie h2{
+    font-size: 0.9rem;
+    width: 250px;
+    font-family: Google Sans;
+    letter-spacing: 0.05rem;
+}
