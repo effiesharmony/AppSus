@@ -4,6 +4,7 @@
 
 .note-index {
     transition: 200ms;
+    margin: 0 15px;
 }
 
 .pinned-notes,
