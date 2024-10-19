@@ -3,12 +3,6 @@ button {
     padding: 0;
 }
 
-img {
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-}
-
 textarea{
     font-family: Google Sans, Roboto, Arial, Helvetica, sans-serif;
     resize: none;
