@@ -17,39 +17,27 @@ function createEventEmitter() {
 }
 
 export const eventBusService = createEventEmitter()
+window.evBus = eventBusService
 
-export function showUserMsg(msg) {
+function showUserMsg(msg) {
     eventBusService.emit('show-user-msg', msg)
 }
 
 export function showSuccessMsg(txt) {
     showUserMsg({ txt, type: 'success' })
 }
+
 export function showErrorMsg(txt) {
     showUserMsg({ txt, type: 'error' })
 }
 
+window.showSuccessMsg = showSuccessMsg
+window.showErrorMsg = showErrorMsg
 
-// Service Testing:
-// eventBus.on('muk', (data)=>{
-//     console.log('Got Muk with data:', data)
-// })
-// eventBus.on('muk', console.log)
-// eventBus.on('puk', (level)=>{
-//     console.log('Got puk with level:', level)
-// })
-// const unsubscribe = eventBus.on('puk', data=>{
-//     console.log('Mee too:', data)
-// })
+window.unsubscribe = eventBusService.on('some-event', (data) => {
+    console.log('Got some-event:\n', data)
+})
 
-// setTimeout(()=>{
-//     unsubscribe()
-// }, 2000)
-
-
-// eventBus.emit('puk', 100)
-
-// setTimeout(()=>{
-//     eventBus.emit('muk', 'Buuuu!')
-//     eventBus.emit('puk', 3)
-// }, 3000)
+eventBusService.on('some-event', (data) => {
+    console.log('I have Also got some-event:\n', data)
+})

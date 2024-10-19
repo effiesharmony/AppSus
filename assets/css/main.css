@@ -28,9 +28,12 @@
 /* Mail */
 /* Pages */
 @import './apps/mail/pages/MailIndex.css';
+@import './apps/mail/pages/MailDetails.css';
 
 /* Cmps */
 @import './apps/mail/cmps/MailList.css';
 @import './apps/mail/cmps/MailPreview.css';
 @import './apps/mail/cmps/MailAdd.css';
 @import './apps/mail/cmps/MailFilter.css';
+@import './apps/mail/cmps/MailFilter2.css';
+@import './apps/mail/cmps/UserMsg.css';

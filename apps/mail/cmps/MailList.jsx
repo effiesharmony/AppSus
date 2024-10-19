@@ -16,10 +16,11 @@ export function MailList({ mails, onRemoveMail, onMarkAsRead, onMarkStar, filter
     const filteredMails = getFilteredMails(mails, filterBy)
     
   return (
-    <div className="mail-list">
+    <div className="mail-list-cmpn">
       <MailFilter2 filterBy={filterBy} onSetFilter={onSetFilter} />
       <ul className="mail-list">
-        {filteredMails.map((mail) => (
+        {filteredMails.length > 0 ? (
+        filteredMails.map((mail) => (
           <li key={mail.id} className="mail-list-mails">
             <MailPreview
               mail={mail}
@@ -29,7 +30,10 @@ export function MailList({ mails, onRemoveMail, onMarkAsRead, onMarkStar, filter
               onMarkStar={onMarkStar}
             />
           </li>
-        ))}
+          ))
+        ) : (
+          <li className="no-mails">No mails</li>
+        )}
       </ul>
     </div>
   );

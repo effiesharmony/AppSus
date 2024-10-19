@@ -3,10 +3,6 @@ const { useState, useEffect } = React;
 export function MailFilter2({ filterBy, onSetFilter }) {
   const [filter2, setFilter2] = useState(filterBy);
 
-  // useEffect(() => {
-  //   setFilter2(filterBy);
-  // }, [filterBy]);
-
   useEffect(() => {
     onSetFilter(filter2);
   }, [filter2]);
@@ -56,7 +52,28 @@ export function MailFilter2({ filterBy, onSetFilter }) {
 
   return (
     <section className="mail-filter2">
+
       <div className="mail-filter2-form">
+
+        <div className="mail-filter2-form-search">
+        <form>
+          <input
+            onChange={handleChange}
+            value={txt}
+            className="mail-filter2-input-txt"
+            placeholder="Search mail"
+            type="text"
+            name="txt"
+            id="txt"
+            title="Search"
+          />
+        </form>
+        <button className="mail-filter2-refresh" onClick={onCleanFilter} title="Refresh">
+          <i className="fa-solid fa-rotate-right"></i>
+        </button>
+        </div>
+
+        <div className="mail-filter2-form-btns">
         <button
           className={type === "all" ? "active" : ""}
           onClick={onCleanFilter}
@@ -77,20 +94,8 @@ export function MailFilter2({ filterBy, onSetFilter }) {
         >
           {type === "subject" ? (order ? "▲" : "▼") : ""} Subject
         </button>
-        <form>
-          <input
-            onChange={handleChange}
-            value={txt}
-            className="mail-filter2-input-txt"
-            placeholder="Search mail"
-            type="text"
-            name="txt"
-            id="txt"
-          />
-        </form>
-        <button className="mail-filter2-refresh" onClick={onCleanFilter}>
-          <i className="fa-solid fa-rotate-right"></i>
-        </button>
+        </div>
+
       </div>
     </section>
   );

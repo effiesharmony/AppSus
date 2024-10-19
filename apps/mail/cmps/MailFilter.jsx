@@ -98,10 +98,10 @@ export function MailFilter({
       )}
 
       {isHovered && (
-        <div className="mail-filter hover">
+        <div className="mail-filter-hover">
           <div className="mail-filter-add-mail-button">
             <button
-              className="mail-filter-add-mail-button button"
+              className="mail-filter-add-mail-button"
               onClick={addMail}
               title="Compose"
             >
@@ -150,7 +150,7 @@ export function MailFilter({
             <label>Trash</label>
           </button>
         </div>
-      )}
+        )}
       <div>
         {isAddingMail && (
           <MailAdd sentMail={sentMail} cancelAddMail={cancelAddMail} />

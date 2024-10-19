@@ -1,0 +1,55 @@
+.mail-filter2-form{
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+  padding: 0 10px;
+}
+
+.mail-filter2-form-search{
+    display: flex;
+    gap: 10px;
+    padding-bottom: 25px;
+    width: 100%;
+}
+
+.mail-filter2-form-search input{
+    font-size: 1rem;
+    padding: 15px 10px;
+    border-radius: 0.8rem;
+    border: none;
+    background-color: #e9f1fb;
+    width: 30vh;
+}
+
+.mail-filter2-form-search input:focus{
+    outline: none;
+    background-color: white;
+    box-shadow: 0 0 5px 0.5px rgba(128, 128, 128, 0.674);
+}
+
+.mail-filter2-form-search button{
+    cursor: pointer;
+    font-size: 0.9rem;
+    padding: 10px 15px;
+    border-radius: 0.8rem;
+    border: none;
+    background-color: #e9f1fb;
+}
+
+.mail-filter2-form-search button:hover{
+    background-color: #d3e3fc;
+}
+
+.mail-filter2-form-btns{
+    display: flex;
+    gap: 10px;
+    margin: 13px 0;
+}
+
+.mail-filter2-form-btns button{
+    border: 1px solid rgba(128, 128, 128, 0.382);
+    border-radius: 1rem;
+    padding: 5px 10px;
+    background-color: transparent;
+}

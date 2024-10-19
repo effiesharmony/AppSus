@@ -4,12 +4,12 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 16px 0;
+  padding: 10px 0;
+  width: 90px;
   background-color: #f6f8fc;
 }
 
 .mail-filter button {
-  position: relative;
   font-size: 1rem;
   padding: 10px;
   width: 40px;
@@ -24,21 +24,20 @@
   background-color: #d3e3fc;
 }
 
-.mail-filter.hover {
-  position: fixed;
-  left: 0px;
+.mail-filter-hover {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 16px 0;
   background-color: #f6f8fc;
-  transition: width ease-in-out 0.2s;
+  transition: width ease 0.3s;
   transition-delay: 0.1s;
-  width: 90px;
+  width: 130px;
+  overflow: hidden;
+  padding-top: 10px;
 }
 
-.mail-filter.hover button {
-  position: relative;
+.mail-filter-hover button {
   font-size: 1rem;
   padding: 10px;
   width: 40px;
@@ -49,54 +48,55 @@
   background-color: transparent;
 }
 
-.mail-filter.hover button label {
+.mail-filter-hover button label {
   margin-left: 10px;
   opacity: 0;
   cursor: pointer;
-  transition: opacity ease-in-out 0.6s;
+  transition: opacity ease-in-out 0.4s;
   transition-delay: 0.1s;
 }
 
-.mail-filter.hover:hover {
-  left: -10px;
+.mail-filter-hover:hover {
+  left: -30px;
   z-index: 2;
   background-color: #f6f8fc;
-  width: 250px;
+  width: 300px;
   height: 500px;
 }
 
-.mail-filter.hover:hover button {
+.mail-filter-hover:hover button {
   text-align: left;
   width: 90%;
   border-top-right-radius: 2rem;
   border-bottom-right-radius: 2rem;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
-  padding-left: 35px;
+  padding-left: 60px;
 }
 
-.mail-filter.hover:hover button label {
+.mail-filter-hover:hover button label {
   margin-left: 10px;
   opacity: 1;
 }
 
-.mail-filter.hover button:hover {
+.mail-filter-hover button:hover {
   background-color: #d8d8db;
 }
 
-.mail-filter.hover button.active {
+.mail-filter-hover button.active {
   background-color: #d3e3fc;
 }
 
 
-
 .mail-filter .mail-filter-add-mail-button{
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 10px;
 }
 .mail-filter .mail-filter-add-mail-button button{
+  position: relative;
   cursor: pointer;
   font-size: 1rem;
   border: none;
@@ -106,6 +106,7 @@
 }
 
 .mail-filter .mail-filter-add-mail-button button:hover{
+  position: relative;
   cursor: pointer;
   font-size: 1rem;
   border: none;
@@ -115,41 +116,59 @@
   box-shadow: 0 0 5px 0.5px rgba(128, 128, 128, 0.674);
 }
 
-.mail-filter.hover .mail-filter-add-mail-button{
+.mail-filter-hover .mail-filter-add-mail-button{
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin-bottom: 10px;
 }
-.mail-filter.hover .mail-filter-add-mail-button button{
+
+.mail-filter-hover .mail-filter-add-mail-button button{
   cursor: pointer;
   font-size: 1rem;
   border: none;
   border-radius: 1rem;
   padding: 30px;
+  width: 80%;
   background-color: #c2e7fc;
+  transition-delay: 0.1s;
+  transition: opacity ease 0.4s;
 }
 
-.mail-filter.hover .mail-filter-add-mail-button button:hover{
+.mail-filter-hover .mail-filter-add-mail-button button:hover{
   cursor: pointer;
   font-size: 1rem;
   border: none;
   border-radius: 1rem;
   padding: 30px;
+  width: 80%;
   background-color: #c2e7fc;
   box-shadow: 0 0 5px 0.5px rgba(128, 128, 128, 0.674);
 }
 
-.mail-filter.hover:hover .mail-filter-add-mail-button{
-  width: 80%;
+.mail-filter-hover:hover .mail-filter-add-mail-button{
+  width: 70%;
+  transition-delay: 0.1s;
+  display: flex;
+  align-items: center;
+  justify-content: start;
 }
 
-.mail-filter.hover button span {
-  margin-left: 10px;
-  opacity: 0;
-  cursor: pointer;
-  transition: opacity ease-in-out 0.6s;
+.mail-filter-hover:hover .mail-filter-add-mail-button button{
   transition-delay: 0.1s;
 }
 
-.mail-filter.hover:hover button span {
+.mail-filter-hover .mail-filter-add-mail-button button span {
   margin-left: 10px;
+  opacity: 0;
+  cursor: pointer;
+  transition: display ease 0.4s;
+  transition-delay: 0.1s;
+  display: none;
+}
+
+.mail-filter-hover:hover .mail-filter-add-mail-button  button span {
   opacity: 1;
+  display: block;
 }

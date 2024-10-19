@@ -15,8 +15,8 @@ export function MailAdd({ sentMail, cancelAddMail }) {
     ev.preventDefault();
     const newMail = {
       createdAt: Date.now(),
-      subject: subject,
-      body: body,
+      subject: subject || '(no subject)',
+      body: body || '(no body)',
       isRead: true,
       sentAt: Date.now(),
       removedAt: null,
@@ -38,8 +38,8 @@ export function MailAdd({ sentMail, cancelAddMail }) {
     ev.preventDefault();
     const newDraft = {
       createdAt: Date.now(),
-      subject: subject,
-      body: body,
+      subject: subject || '(no subject)',
+      body: body || '(no body)',
       isRead: true,
       sentAt: null,
       removedAt: null,

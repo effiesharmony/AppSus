@@ -1,0 +1,50 @@
+.user-msg-mail {
+    font-family: Google Sans;
+    font-size: 0.95rem;
+    position: fixed;
+    bottom: 0.5rem;
+    right: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 0.9rem;
+    margin: 0.5rem;
+    border-radius: 0.5rem;
+    background-color: #f1f1f1;
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.1);
+    animation: slideIn 0.3s ease-in-out;
+}
+
+.user-msg-mail.success {
+    background-color: #e6f7eaa3;
+    color: #2d5e39;
+}
+
+.user-msg-mail.error {
+    background-color: #ffe6e8ca;
+    color: #702930;
+}
+
+.user-msg-mail h4 {
+    margin: 0;
+    /* margin-bottom: 0.5rem; */
+}
+
+.user-msg-mail button {
+    background-color: hsl(0 0% 100%/0.35);
+    border: none;
+    cursor: pointer;
+    font-size: 1.15rem;
+    width: fit-content;
+    aspect-ratio: 1;
+    align-self: end;
+    color: inherit;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    /* margin-top: 1rem; */
+}
+
+.user-msg-mail button:hover {
+    background-color: hsl(0 0% 100%/0.55);
+}

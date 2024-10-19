@@ -22,8 +22,8 @@ export function MailEditor({ editingDraft, onSentMail, onCancel }) {
     const newMail = {
       id: editingDraft.id,
       createdAt: Date.now(),
-      subject: subject,
-      body: body,
+      subject: subject || '(no subject)',
+      body: body || '(no body)',
       isRead: true,
       sentAt: Date.now(),
       removedAt: null,
@@ -47,8 +47,8 @@ export function MailEditor({ editingDraft, onSentMail, onCancel }) {
     const draft = {
       id: editingDraft.id,
       createdAt: Date.now(),
-      subject: subject,
-      body: body,
+      subject: subject || '(no subject)',
+      body: body || '(no body)',
       isRead: true,
       sentAt: null,
       removedAt: null,

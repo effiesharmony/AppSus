@@ -3,7 +3,7 @@ import { mailService } from "../services/mail.service.js";
 const { useEffect, useState } = React;
 const { useParams, useNavigate } = ReactRouterDOM;
 
-export function MailDetails({onRemoveMail}) {
+export function MailDetails() {
   const [mail, setMail] = useState(null);
   const { mailId } = useParams();
   const navigate = useNavigate();
@@ -31,13 +31,50 @@ export function MailDetails({onRemoveMail}) {
           })
   }
 
+  function handlePrint() {
+    window.print();
+  }
+
   if (!mail) return <div>Loading...</div>
+  const date = new Date(mail.sentAt).toLocaleString()
   return (
-    <div>
-      <h1>{mail.subject}</h1>
-      <p>{mail.body}</p>
-      <button onClick={() => navigate("/mail")}>Go back</button>
-      <button onClick={() => onRemoveMail(mail.id)}>Delete</button>
+    <div className="mail-details">
+      <div className="mail-details-btns">
+        <button onClick={() => navigate("/mail")}>
+          <i className="fa-solid fa-arrow-left"></i>
+        </button>
+        <button onClick={() => onRemoveMail(mail.id)}>
+          <i className="fa-solid fa-trash-can"></i>
+        </button>
+      </div>
+
+      <div className="mail-details-info">
+        <div className="mail-details-subject-print">
+          <h1 className="mail-details-subject">{mail.subject}</h1>
+          <button onClick={handlePrint}>
+            <i className="fa-solid fa-print"></i>
+          </button>
+        </div>
+
+        <div className="mail-details-img-from-to-date">
+          <div className="mail-details-img-from-to">
+            <div className="mail-details-img">
+              <img src="/apps/mail/img/profile-img.png" alt="profile image" />
+            </div>
+
+            <div className="mail-details-from-to">
+              <div className="mail-details-from">{mail.from}</div>
+              <div className="mail-details-to">to: {mail.to}</div>
+            </div>
+          </div>
+
+          <div>
+            <div className="mail-details-to">{date}</div>
+          </div>
+        </div>
+
+        <p className="mail-details-body">{mail.body}</p>
+      </div>
     </div>
-  )
+  );
 }

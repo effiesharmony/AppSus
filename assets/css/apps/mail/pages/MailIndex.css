@@ -1,12 +1,14 @@
 .main-mail-index {
-  margin-top: 40px;
   font-size: 14px;
   color: #545658;
 }
 
 .main-mail-index-page {
-  display: flex;
+  display: grid;
+  grid-auto-flow: column;
   align-items: start;
+  justify-content: start;
+  grid-template-columns: 90px 1fr;
   gap: 10px;
   width: 100%;
 }
@@ -27,4 +29,15 @@
 
 .main-mail-index-btn-add-mail:hover {
   box-shadow: 0 0 5px 0.5px rgba(128, 128, 128, 0.674);
+}
+
+.loader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 100px;
+}
+
+.loader img {
+  width: 70px;
 }

@@ -1,9 +1,10 @@
 import { mailService } from "../services/mail.service.js";
 import { utilService } from "../../../services/util.service.js";
+import { showErrorMsg, showSuccessMsg } from "../../../services/event-bus.service.js"
 import { MailList } from "../cmps/MailList.jsx";
 import { MailEditor } from "../cmps/MailEditor.jsx";
 import { MailFilter } from "../cmps/MailFilter.jsx";
-
+import { UserMsg } from "../cmps/UserMsg.jsx"
 const { useState, useEffect } = React;
 const { useSearchParams } = ReactRouterDOM;
 
@@ -34,12 +35,14 @@ export function MailIndex() {
         if (mail.status !== "trash") {
           const updatedMail = { ...mail, status: "trash" }
           mailService.save(updatedMail)
+          showSuccessMsg("Mail added to trash")
           return updatedMail
         } else {
           mailService
             .remove(mailId)
             .then(() => {
               setMails((prevMails) => prevMails.filter((m) => m.id !== mailId));
+              showSuccessMsg("Mail successfully deleted")
             })
             .catch((err) => {
               console.log("Problems removing mail:", err);
@@ -82,11 +85,13 @@ export function MailIndex() {
 
   function onCancel() {
     setIsEditingDraft(false)
+    showSuccessMsg("Mail added to drafts")
     loadMails()
   }
 
   function onSentMail() {
     setIsEditingDraft(false)
+    showSuccessMsg("Mail has been sent")
     loadMails();
   }
 
@@ -100,7 +105,7 @@ export function MailIndex() {
     setFilterBy((prevFilter) => ({ ...prevFilter, ...filterByToEdit }));
   }
 
-  if (!mails) return <div>Loading...</div>;
+  if (!mails) return <div className="loader"><img src="/apps/mail/svg/loader.svg" alt="" /></div>;
   return (
     <main className="main-mail-index">
       <div className="main-mail-index-page">
@@ -124,6 +129,7 @@ export function MailIndex() {
           <MailEditor editingDraft={editingDraft} onSentMail={onSentMail} onCancel={onCancel} />
         )}
       </div>
+      <UserMsg />
     </main>
   );
 }
