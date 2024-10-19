@@ -3,7 +3,7 @@ import { ColorPicker } from "./ColorPicker.jsx"
 const { useState } = React
 const { Link } = ReactRouterDOM
 
-export function NotePreview({ note, onRemoveNote }) {
+export function NotePreview({ note, onRemoveNote, setNoteToEdit }) {
 
     const [isColorInputShown, setIsColorInputShown] = useState(false)
 
@@ -69,9 +69,9 @@ export function NotePreview({ note, onRemoveNote }) {
                     <img src="../../../assets/img/color.palette.icon.png" />
                 </button>
                 {isColorInputShown && <ColorPicker chosenColor={note.style.backgroundColor} onChangeColor={onChangeColor} />}
-                <button className="edit-btn"><Link to={`/note/${note.id}`}>
+                <button className="edit-btn" onClick={() => setNoteToEdit(note.id)}>
                     <img src="../../../assets/img/pen.icon.svg" alt="Edit" />
-                </Link></button>
+                </button>
                 <button onClick={onDuplicateNote} className="duplicate">
                     <img src="../../../assets/img/copy.icon.svg" alt="Copy" />
                 </button>

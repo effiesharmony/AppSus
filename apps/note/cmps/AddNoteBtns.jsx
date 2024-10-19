@@ -2,7 +2,7 @@ import { ColorPicker } from "./ColorPicker.jsx"
 const { Link } = ReactRouterDOM
 
 
-export function AddNoteBtns({ onCancel, onSetColor, backgroundColor, isColorInputShown, setIsColorInputShown, onSaveNote }) {
+export function AddNoteBtns({ onCancel, onSetColor, backgroundColor, isColorInputShown, setIsColorInputShown, onSaveNote, }) {
     return (
         <React.Fragment>
              <section>

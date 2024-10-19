@@ -4,13 +4,13 @@ const { useState, useEffect } = React
 const { useParams } = ReactRouterDOM
 
 
-export function EditNote() {
+export function EditNote({ noteToEdit, setNoteToEdit }) {
 
     const [note, setNote] = useState(null)
-    const { noteId } = useParams()
+    // const { noteId } = useParams()
 
     function getNote() {
-        notesService.get(noteId)
+        notesService.get(noteToEdit)
             .then(setNote)
             .catch(err => {
                 console.log('Problem getting Note:', err)
@@ -24,6 +24,6 @@ export function EditNote() {
 
     if (!note) return <p>Loading...</p>
     return (
-        <AddNote note={note} setNote={setNote} />
+        <AddNote note={note} setNote={setNote} setNoteToEdit={setNoteToEdit} />
     )
 }

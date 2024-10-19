@@ -10,7 +10,7 @@ import { TodosNote } from "./TodosNote.jsx"
 import { ImageNote } from "./ImageNote.jsx"
 import { VideoNote } from "./VideoNote.jsx"
 
-export function AddNote({ note, setNote }) {
+export function AddNote({ note, setNote, setNoteToEdit }) {
 
     const [isColorInputShown, setIsColorInputShown] = useState(false)
 
@@ -22,6 +22,7 @@ export function AddNote({ note, setNote }) {
 
     function onCancel() {
         setNote(emptyNote)
+        setNoteToEdit(null)
     }
 
     function onSetNoteType(type) {
@@ -48,6 +49,7 @@ export function AddNote({ note, setNote }) {
         setNote(newNote)
         notesService.save(newNote)
         setNote(emptyNote)
+        setNoteToEdit(null)
     }
 
     function onAddInfo(value) {
@@ -81,7 +83,7 @@ export function AddNote({ note, setNote }) {
                     <div className="add-note-btns-container">
                         <AddNoteBtns onCancel={onCancel} onSetColor={onSetColor}
                             backgroundColor={note.style.backgroundColor} isColorInputShown={isColorInputShown}
-                            setIsColorInputShown={setIsColorInputShown} onSaveNote={onSaveNote}/>
+                            setIsColorInputShown={setIsColorInputShown} onSaveNote={onSaveNote} />
                     </div>}
             </form>
         </section>
