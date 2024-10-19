@@ -4,8 +4,8 @@ html{
 
 body {
     font-size: 0.875em;
-    background-color: var(--notes-main-bg-color);
-    margin: 0 10px;
+    background-color: transparent;
+    margin: 0;
     color: var(--notes-main-color3);
 }
 

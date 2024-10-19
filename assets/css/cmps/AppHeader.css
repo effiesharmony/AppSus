@@ -3,13 +3,13 @@
     display: flex;
     align-items: center;
     justify-items: center;
-    background: var(--notes-main-bg-color);
-    border-bottom: 2px solid white;
+    background-color: transparent;
     height: 64px;
     margin: 8px;
     margin-bottom: 2px solid var(--notes-main-color3);
     padding: 8px;
     justify-content: space-between;
+    z-index: 2;
 }
 
 .hamburger-btn{

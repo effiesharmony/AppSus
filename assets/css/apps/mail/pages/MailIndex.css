@@ -1,3 +1,14 @@
+main{
+  position: relative;
+  top: -70px;
+  height: 200vh;
+  width: 100%;
+  padding-top: 90px;
+  padding-right: 10px;
+  background-color: #f6f8fc;
+  z-index: 0;
+}
+
 .main-mail-index {
   font-size: 14px;
   color: #545658;

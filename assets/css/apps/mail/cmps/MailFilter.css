@@ -61,7 +61,7 @@
   z-index: 2;
   background-color: #f6f8fc;
   width: 300px;
-  height: 500px;
+  height: 100vh;
 }
 
 .mail-filter-hover:hover button {
