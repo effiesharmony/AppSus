@@ -14,9 +14,9 @@ export function NoteIndex() {
     const [note, setNote] = useState(emptyNote)
     const [noteToEdit, setNoteToEdit] = useState(null)
 
-useEffect(() => {
-    if(noteToEdit) document.querySelector('.edit-dialog').showModal()
-}, [noteToEdit])
+    useEffect(() => {
+        if (noteToEdit) document.querySelector('.edit-dialog').showModal()
+    }, [noteToEdit])
 
     useEffect(() => {
         loadNotes()
@@ -55,7 +55,7 @@ useEffect(() => {
 
     return (
         <div className="note-index">
-                        {noteToEdit &&
+            {noteToEdit &&
                 <dialog className="edit-dialog">
                     <EditNote noteToEdit={noteToEdit} setNoteToEdit={setNoteToEdit} />
                 </dialog>
