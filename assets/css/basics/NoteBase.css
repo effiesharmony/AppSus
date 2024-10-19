@@ -1,0 +1,24 @@
+button {
+    background-color: transparent;
+    padding: 0;
+}
+
+img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+textarea{
+    font-family: Google Sans, Roboto, Arial, Helvetica, sans-serif;
+    resize: none;
+    font-size: .875rem;
+    background-color: transparent;
+}
+
+input{
+    border: none;
+    outline: none;
+    font-size: .875rem;
+    background-color: transparent;
+}

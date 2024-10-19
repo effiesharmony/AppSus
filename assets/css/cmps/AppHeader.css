@@ -1,24 +1,27 @@
-header {
-    background: var(--main-bg-color);
+.app-header {
+    position: sticky;
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    background: var(--notes-main-bg-color);
     border-bottom: 2px solid white;
+    height: 64px;
+    margin: 8px;
+    margin-bottom: 2px solid var(--notes-main-color3);
+    padding: 8px;
+    justify-content: space-between;
 }
 
-.app-header {
-    display: flex;
-    justify-content: space-between;
-    padding: 20px 0;
+.hamburger-btn{
+    height: 24px;
+    width: 24px;
 }
 
 nav a {
     margin: .5em;
 }
 
-nav a:active {
-    color: purple;
-}
-
 nav a.active {
-    color: darkblue;
+    color: var(--notes-main-color4);
     font-weight: bold;
-    text-decoration: overline;
 }

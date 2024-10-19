@@ -8,41 +8,65 @@
     min-width: 10em;
     height: fit-content;
     padding: 1em;
-    border-radius: .7em;
+    border-radius: .5rem;
     transition: 250ms;
-    margin-bottom: 10px;
+    transition-timing-function: ease-in;
+    margin-bottom: 1em;
     word-break: break-word;
-    border: .7px solid rgb(219, 218, 218);
+    border: .7px solid var(--notes-main-color2);
 }
 
-.note-preview p {
+.note-preview h2 {
     margin-top: .4em;
+}
+
+.note-preview>* {
+    color: var(--notes-main-color4);
+
+}
+
+button {
+    height: fit-content;
+    width: auto;
+    border: none;
 }
 
 .note-preview button:hover {
     cursor: pointer;
+    background-color: rgba(31, 32, 35, 0.1);
+    border-radius: 50%;
 }
+
 
 .note-preview input:hover {
     cursor: pointer;
 }
 
-.delete-btn,
-.color-btn {
+.note-preview .btns {
+    height: fit-content;
+    width: auto;
     border: none;
     background-color: transparent;
     opacity: 0;
 }
 
-.note-preview:hover .delete-btn,
-.note-preview:hover .color-btn {
+.note-preview button{
+    padding: 15px;
+}
+
+.pin-btn {
+    position: absolute;
+    right: 20px;
+}
+
+.note-preview:hover .btns {
     opacity: 1;
 }
 
-.delete-btn:hover, .color-btn:hover{
-  color: #a560ef;
+.strike {
+    text-decoration: line-through;
 }
 
-.strike{
-    text-decoration: line-through;
+li {
+    list-style: none;
 }

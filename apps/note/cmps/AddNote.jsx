@@ -70,15 +70,15 @@ export function AddNote({ note, setNote }) {
     }
 
     return (
-        <section style={{ backgroundColor: note.style.backgroundColor }} className="add-note-container">
-            <form className="add-note">
+        <section className="add-note-container">
+            <form style={{ backgroundColor: note.style.backgroundColor }} className="add-note">
                 <NoteTitle onSetNoteTitle={onSetNoteTitle} onSetNoteType={onSetNoteType} note={note}/>
                 {note.type === 'NoteTxt' && <TextNote onAddInfo={onAddInfo} note={note}/>}
                 {note.type === 'NoteTodos' && <TodosNote onAddInfo={onAddInfo} note={note}/>}
                 {note.type === 'NoteImg' && <ImageNote onAddInfo={onAddInfo} note={note} />}
                 {note.type === 'NoteVid' && <VideoNote onAddInfo={onAddInfo} note={note} />}
                 {note.type &&
-                    <div className="add-note-btns">
+                    <div className="add-note-btns-container">
                         <AddNoteBtns onCancel={onCancel} onSetColor={onSetColor}
                             backgroundColor={note.style.backgroundColor} isColorInputShown={isColorInputShown}
                             setIsColorInputShown={setIsColorInputShown} onSaveNote={onSaveNote}/>

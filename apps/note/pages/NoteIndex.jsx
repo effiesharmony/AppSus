@@ -52,21 +52,21 @@ export function NoteIndex() {
             <NoteFilter setFilterBy={setFilterBy} filterBy={filterBy} />
             <AddNote note={note} setNote={setNote} />
             <section className="note-preview-container">
+                {notes.some(note => note.isPinned) && <h2 className="pinned-notes-title">Pinned</h2>}
                 <div className="pinned-notes">
-                    {notes.some(note => note.isPinned) && <h2 className="pinned-notes-title">Pinned</h2>}
                     {notes.map(note => note.isPinned ?
-                            <section key={note.id} className="pinned-notes">
-                                <NotePreview note={note} onRemoveNote={onRemoveNote} />
-                            </section> : null
+                        <section key={note.id} className="pinned-notes">
+                            <NotePreview note={note} onRemoveNote={onRemoveNote} />
+                        </section> : null
                     )}
                 </div>
 
+                {notes.some(note => note.isPinned) && <h2 className="other-notes-title">Others</h2>}
                 <div className="other-notes">
-                    <h2 className="other-notes-title">Others</h2>
                     {notes.map(note => !note.isPinned ?
-                            <section key={note.id} className="pinned-notes">
-                                <NotePreview note={note} onRemoveNote={onRemoveNote} />
-                            </section> : null
+                        <section key={note.id} className="pinned-notes">
+                            <NotePreview note={note} onRemoveNote={onRemoveNote} />
+                        </section> : null
                     )}
                 </div>
 

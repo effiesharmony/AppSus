@@ -1,11 +1,25 @@
-.note-preview-container {
+*{
+    box-sizing: border-box;
+}
+
+.pinned-notes, .other-notes {
     columns: auto 250px;
-    flex-direction: row;
-    gap: .7em;
-    row-gap: .7em;
+    break-inside: avoid;
 }
 
 .note-index h1 {
     font-size: 1.5em;
     margin-bottom: .8em;
+}
+
+.pinned-notes-title, .other-notes-title{
+    font-size: 0.6875rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: .1rem;
+    margin: .5rem;
+}
+
+.other-notes-title{
+    margin-top: 4.375rem;
 }

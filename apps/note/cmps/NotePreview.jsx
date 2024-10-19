@@ -33,7 +33,7 @@ export function NotePreview({ note, onRemoveNote }) {
             })
     }
 
-    function onPin(){
+    function onPin() {
         note.isPinned = !note.isPinned
         notesService.save(note)
     }
@@ -42,6 +42,9 @@ export function NotePreview({ note, onRemoveNote }) {
     return (
         <article style={{ backgroundColor: note.style.backgroundColor }} className="note-preview">
             <h2>{note.info.title}</h2>
+            <button className="pin-btn" onClick={onPin}>
+                <img src="../../../assets/img/pin.icon.svg" alt="Pin-Note" />
+            </button>
             {note.type === 'NoteTxt' && <p>{note.info.txt}</p>}
             {note.type === 'NoteImg' && <img src={note.info.url} />}
             {note.type === 'NoteVid' && <a href={note.info.url} target="_blank">{note.info.url}</a>}
@@ -51,20 +54,27 @@ export function NotePreview({ note, onRemoveNote }) {
                         <li key={index}>
                             <input onChange={(ev) => onCheck(ev.target.checked, index)} type="checkbox" checked={todo.isChecked} />
                             <span className={`${todo.isChecked ? 'strike' : 'todo-txt'}`}>{todo.text}</span>
-                            <button onClick={() => onDeleteItem(index)} type="button" className="list-delete-btn">X</button>
+                            <button onClick={() => onDeleteItem(index)} type="button" className="list-delete-btn">
+                                <img src="../../../assets/img/X.icon.svg" alt="" />
+                            </button>
                         </li>
                     )}
                 </ul>
             }
             <section className="btns">
-                <button className="pin-btn" onClick={onPin}><i className="fa-solid fa-thumbtack"></i></button>
-                <button className="delete-btn" onClick={() => onRemoveNote(note.id)}><i className="fa-solid fa-trash"></i></button>
+                <button className="delete-btn" onClick={() => onRemoveNote(note.id)}>
+                    <img src="../../../assets/img/trash.icon.svg" alt="Delete" />
+                </button>
                 <button className="color-btn" onClick={() => setIsColorInputShown(!isColorInputShown)}>
-                    <i className="fa-solid fa-palette"></i>
+                    <img src="../../../assets/img/color.palette.icon.png" />
                 </button>
                 {isColorInputShown && <ColorPicker chosenColor={note.style.backgroundColor} onChangeColor={onChangeColor} />}
-                <button className="edit-btn"><Link to={`/note/${note.id}`}><i className="fa-solid fa-pen"></i></Link></button>
-                <button onClick={onDuplicateNote} className="duplicate"><i className="fa-solid fa-copy"></i></button>
+                <button className="edit-btn"><Link to={`/note/${note.id}`}>
+                    <img src="../../../assets/img/pen.icon.svg" alt="Edit" />
+                </Link></button>
+                <button onClick={onDuplicateNote} className="duplicate">
+                    <img src="../../../assets/img/copy.icon.svg" alt="Copy" />
+                </button>
             </section>
         </article>
     )
