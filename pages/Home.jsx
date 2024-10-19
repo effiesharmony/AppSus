@@ -1,7 +1,15 @@
 
 export function Home() {
-    return <section className="home">
-        <h1>Welcome to home page!</h1>
-        <img src="../assets/img/background.jpg" alt="" />
-    </section>
+    return (
+        <React.Fragment>
+            <section className="home">
+                <img className="logo-img-white" src="logo.imgs/logo-white.png" alt="AppSus logo" />
+                <p>the place to <span className="home-keep">keep</span> and <span className="home-share">share</span> your life<span>.</span></p>
+            </section>
+            <div className="background-img">
+                {/* <img src="assets/img/background-img.avif" /> */}
+            </div>
+            <img src="../assets/img/background.jpg" alt="" />
+        </React.Fragment>
+    )
 }

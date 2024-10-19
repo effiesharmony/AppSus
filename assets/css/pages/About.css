@@ -22,7 +22,7 @@
 
 .about-valery img, .about-effie img{
     width: 250px;
-    height: 300px;
+    border-radius: 50%;
     overflow: hidden;
 }
 
