@@ -22,8 +22,9 @@
 @import './cmps/UserMsg.css';
 @import './cmps/AppHeader.css';
 @import './apps/note/cmps/ColorPicker.css';
-
-
+@import './apps/note/cmps/TodosNote.css';
+@import './basics/NoteBase.css';
+@import './apps/note/cmps/NoteFilter.css';
 
 /* Mail */
 /* Pages */

@@ -41,14 +41,18 @@ export function TodosNote({ onAddInfo, note }) {
 
     return (
         <div className="todos-note">
-            <button onClick={() => addEmptyListItem()} type="button" className="list-add-btn">+</button>
+            <button onClick={() => addEmptyListItem()} type="button" className="list-add-btn">
+                <img src="../../../assets/img/add.icon.svg" alt="" />
+            </button>
             <ul className="todos-list" >
                 {
                     todosList.map((todo, index) =>
                         <li key={index}>
                             <input onChange={(ev) => onCheck(ev.target.checked, index)} className="checkbox" type="checkbox" checked={todo.isChecked} />
                             <input onInput={(ev) => onTextInput(ev.target.value, index)} className="list-item-txt" type="text" placeholder="List item" value={todo.text} />
-                            <button onClick={() => onRemoveItem(index)} type="button" className="list-delete-btn">X</button>
+                            <button onClick={() => onRemoveItem(index)} type="button" className="list-delete-btn">
+                                <img src="../../../assets/img/X.icon.svg" alt="" />
+                            </button>
                         </li>
                     )
                 }

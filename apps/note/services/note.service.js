@@ -12,7 +12,7 @@ export const emptyNote = {
         title: ''
     },
     style: {
-        backgroundColor: '#fffff'
+        backgroundColor: '#ffffff'
     },
 }
 
@@ -72,7 +72,7 @@ function query(filterBy = {}) {
         .then(notes => {
             if (filterBy.txt) {
                 const regExp = new RegExp(filterBy.txt, 'i')
-                notes = notes.filter(notes => regExp.test(notes.info.txt) || regExp.test(notes.info.title) || regExp.test(notes.info.url) )
+                notes = notes.filter(note => regExp.test(note.info.txt) || regExp.test(note.info.title))
             }
             return notes
         })

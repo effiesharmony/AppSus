@@ -2,15 +2,19 @@ import { ColorPicker } from "./ColorPicker.jsx"
 const { Link } = ReactRouterDOM
 
 
-export function AddNoteBtns({ onCancel, onSetColor, backgroundColor, isColorInputShown, setIsColorInputShown, onSaveNote }) {
+export function AddNoteBtns({ onCancel, onSetColor, backgroundColor, isColorInputShown, setIsColorInputShown, onSaveNote, }) {
     return (
-        <div>
-            <button onClick={onSaveNote}><Link to={'/notes'}>Save</Link></button>
-            <button type="button" onClick={onCancel}>Cancel</button>
-            <button type="button" onClick={() => setIsColorInputShown(!isColorInputShown)} className="color-btn">
-                <i className="fa-solid fa-palette"></i>
-            </button>
-            {isColorInputShown && <ColorPicker onChangeColor={onSetColor} chosenColor={backgroundColor} />}
-        </div>
+        <React.Fragment>
+             <section>
+                <button type="button" onClick={() => setIsColorInputShown(!isColorInputShown)} className="color-btn">
+                    <img src="../../../assets/img/color.palette.icon.png" />
+                </button>
+                {isColorInputShown && <ColorPicker onChangeColor={onSetColor} chosenColor={backgroundColor} />}
+            </section>
+            <section>
+                <button className="save-btn" onClick={onSaveNote}><Link to={'/notes'}>Save</Link></button>
+                <button className="close-btn" type="button" onClick={onCancel}>Close</button>
+            </section>
+        </React.Fragment>
     )
 }

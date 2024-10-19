@@ -3,6 +3,7 @@ import { notesService } from "../services/note.service.js"
 import { emptyNote } from "../services/note.service.js"
 import { AddNote } from "../cmps/AddNote.jsx"
 import { NoteFilter } from "../pages/NoteFilter.jsx"
+import { EditNote } from "../cmps/EditNote.jsx"
 
 const { useState, useEffect } = React
 
@@ -11,6 +12,11 @@ export function NoteIndex() {
     const [notes, setNotes] = useState(null)
     const [filterBy, setFilterBy] = useState(notesService.getDefaultFilter())
     const [note, setNote] = useState(emptyNote)
+    const [noteToEdit, setNoteToEdit] = useState(null)
+
+    useEffect(() => {
+        if (noteToEdit) document.querySelector('.edit-dialog').showModal()
+    }, [noteToEdit])
 
     useEffect(() => {
         loadNotes()
@@ -49,27 +55,31 @@ export function NoteIndex() {
 
     return (
         <div className="note-index">
+            {noteToEdit &&
+                <dialog className="edit-dialog">
+                    <EditNote noteToEdit={noteToEdit} setNoteToEdit={setNoteToEdit} />
+                </dialog>
+            }
             <NoteFilter setFilterBy={setFilterBy} filterBy={filterBy} />
-            <AddNote note={note} setNote={setNote} />
+            <AddNote note={note} setNote={setNote} setNoteToEdit={setNoteToEdit} />
             <section className="note-preview-container">
+                {notes.some(note => note.isPinned) && <h2 className="pinned-notes-title">Pinned</h2>}
                 <div className="pinned-notes">
-                    {notes.some(note => note.isPinned) && <h2 className="pinned-notes-title">Pinned</h2>}
                     {notes.map(note => note.isPinned ?
-                            <section key={note.id} className="pinned-notes">
-                                <NotePreview note={note} onRemoveNote={onRemoveNote} />
-                            </section> : null
+                        <section key={note.id} className="pinned-notes">
+                            <NotePreview note={note} onRemoveNote={onRemoveNote} setNoteToEdit={setNoteToEdit} />
+                        </section> : null
                     )}
                 </div>
 
+                {notes.some(note => note.isPinned) && <h2 className="other-notes-title">Others</h2>}
                 <div className="other-notes">
-                    <h2 className="other-notes-title">Others</h2>
                     {notes.map(note => !note.isPinned ?
-                            <section key={note.id} className="pinned-notes">
-                                <NotePreview note={note} onRemoveNote={onRemoveNote} />
-                            </section> : null
+                        <section key={note.id} className="pinned-notes">
+                            <NotePreview note={note} onRemoveNote={onRemoveNote} setNoteToEdit={setNoteToEdit} />
+                        </section> : null
                     )}
                 </div>
-
             </section>
         </div>
     )

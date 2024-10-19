@@ -1,4 +1,4 @@
-.add-note {
+/* .add-note {
     display: flex;
     flex-direction: column;
     max-width: 554px;
@@ -7,16 +7,121 @@
     margin-bottom: 10px;
     border-radius: 10px;
     transition: 200ms;
-    
-}
+} */
 
-.add-note .color-btn {
-    position: relative;
-    opacity: 1;
-    font-size: 1.5em
-}
 
-.add-note-colors.colors-container{
+.add-note-colors.colors-container {
     position: absolute;
     right: -100px;
+}
+
+.title-container>* {
+    border: none;
+    background-color: transparent;
+    font-size: 1em;
+    line-height: 1.5;
+}
+
+.add-note {
+    justify-content: space-between;
+    width: 100%;
+    max-width: 600px;
+    margin: auto;
+    border: 1.5px solid var(--notes-main-color2);
+    text-align: start;
+    border-radius: 0.5rem;
+    box-shadow: 0px 0.7px 6px #999999;
+    margin-bottom: 60px;
+}
+
+.add-note button {
+    border: none;
+    padding: none;
+}
+
+.title-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 16px;
+    height: 46px;
+    align-items: center;
+}
+
+.text-input {
+    border: none;
+    outline: none;
+    padding: 12px 16px;
+}
+
+.title-container {
+    position: relative;
+}
+
+.title-input {
+    font-size: 1rem;
+    width: 100%;
+}
+
+.title-btns-container i {
+    color: var(--notes-main-color3);
+    font-size: 1.4rem;
+    padding: 5px;
+}
+
+.title-btns-container {
+    background-color: transparent;
+    position: absolute;
+    right: .5em;
+}
+
+.add-note-btns-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.add-note-btns-container .color-btn {
+    justify-self: start;
+}
+
+.color-btn img {
+    width: 20px;
+    height: auto;
+}
+
+.add-note button:hover {
+    cursor: pointer;
+    background-color: rgba(31, 32, 35, 0.1);
+    border-radius: 50%;
+}
+
+.add-note button {
+    padding: 8px;
+}
+
+.image-note,
+.vid-note {
+    padding: 12px 16px;
+}
+
+.todos-note {
+    padding: 12px;
+}
+
+.image-note input{
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+.vid-note input{
+    width: 100%;
+}
+
+.add-note-btns-container .close-btn:hover,
+.add-note-btns-container .save-btn:hover{
+    border-radius: 5px;
+}
+
+.add-note-btns-container .close-btn{
+    margin-right: 10px;
 }

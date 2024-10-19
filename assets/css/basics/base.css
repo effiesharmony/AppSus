@@ -3,8 +3,10 @@ html{
 }
 
 body {
-    background-color: #f6f8fc;
+    font-size: 0.875em;
+    background-color: var(--notes-main-bg-color);
     margin: 0 10px;
+    color: var(--notes-main-color3);
 }
 
 h1,
@@ -13,6 +15,7 @@ h3,
 h4,
 h5,
 h6 {
+    font-size: 1rem;
     margin: 0;
 }
 
@@ -26,6 +29,7 @@ img {
     width: 100%;
     object-fit: cover;
 }
+
 
 .logo-img img{
     width: 120px;

@@ -1,0 +1,28 @@
+.note-filter {
+    display: flex;
+    position: absolute;
+    background-color: var(--notes-search-bg-color);
+    top: 8px;
+    left: 160px;
+    width: 500px;
+    max-width: 720px;
+    min-width: 400px;
+    border-radius: 8px;
+}
+
+.note-filter input{
+    padding: 11px;
+    font-size: 1rem;
+    width: 100%;
+}
+
+.note-filter button{
+    vertical-align: middle;
+    padding: 10px;
+}
+
+.note-filter button:hover{
+    cursor: pointer;
+    background-color: rgba(31, 32, 35, 0.1);
+    border-radius: 50%;
+}

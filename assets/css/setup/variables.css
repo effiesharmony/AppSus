@@ -1,3 +1,25 @@
 :root {
-    --main-bg-color: #f6f8fc;
+    /* mail */
+    --mail-main-bg-color1: #f6f8fc;
+    /* read/opened email bg color: */
+    --mail-main-bg-color1: #f2f6fc;
+    /* search bar color: */
+    --mail-main-color1: #f6f8fc;
+    /* compose btn color: */
+    --mail-main-color2: #c2e7ff;
+    /* selected inbox/starred... color: */
+    --mail-main-color2: #d3e3fd;
+
+    /* notes */
+    --notes-main-bg-color: #fff;
+    /* filter bgc: */
+    --notes-search-bg-color: #f1f3f4;
+    /*  btns hover circles color: */
+    --notes-main-color2: #dee0e4;
+    /* font color: */
+    --notes-main-color3: #5f6368;
+     /* selected + msgs */
+    --notes-main-color4: rgb(31, 32, 35);
+    --notes-yellow-color: #feefc3;
+    --notes-purple-color: #a142f4;
 }

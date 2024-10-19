@@ -1,6 +1,7 @@
 export function ColorPicker({ chosenColor, onChangeColor }) {
 
     const colors = [
+        '#ffffff',
         '#faafa8',
         '#f39f76',
         '#fff8b8',
