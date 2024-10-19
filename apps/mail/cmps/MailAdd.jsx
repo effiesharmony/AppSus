@@ -63,7 +63,7 @@ export function MailAdd({ sentMail, cancelAddMail }) {
 
         <div className="mail-add-form-header">
           <div className="mail-add-form-header-title">New Message</div>
-          <button className="mail-add-form-header-button" onClick={mailDraft}>X</button>
+          <button className="mail-add-form-header-button" onClick={mailDraft}><i className="fa-solid fa-xmark"></i></button>
         </div>
 
         <div className="mail-add-form-inputs">

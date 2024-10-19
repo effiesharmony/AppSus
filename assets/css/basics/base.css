@@ -26,3 +26,7 @@ img {
     width: 100%;
     object-fit: cover;
 }
+
+.logo-img img{
+    width: 120px;
+}

@@ -73,7 +73,7 @@ export function MailEditor({ editingDraft, onSentMail, onCancel }) {
         <div className="mail-add-form-header">
           <div className="mail-add-form-header-title">New Message</div>
           <button className="mail-add-form-header-button" onClick={mailDraft}>
-            X
+          <i className="fa-solid fa-xmark"></i>
           </button>
         </div>
 

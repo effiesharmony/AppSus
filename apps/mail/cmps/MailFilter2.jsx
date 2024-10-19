@@ -85,14 +85,14 @@ export function MailFilter2({ filterBy, onSetFilter }) {
           className={type === "sentAt" ? "active" : ""}
           onClick={handleSortByDate}
         >
-          {type === "sentAt" ? (order ? "▲" : "▼") : ""} Date
+          {type === "sentAt" ? (order ? <i class="fa-solid fa-chevron-up"></i> : <i class="fa-solid fa-chevron-down"></i>) : ""} Date
         </button>
 
         <button
           className={type === "subject" ? "active" : ""}
           onClick={handleSortByAlphabet}
         >
-          {type === "subject" ? (order ? "▲" : "▼") : ""} Subject
+          {type === "subject" ? (order ? <i class="fa-solid fa-chevron-up"></i> : <i class="fa-solid fa-chevron-down"></i>) : ""} Subject
         </button>
         </div>
 

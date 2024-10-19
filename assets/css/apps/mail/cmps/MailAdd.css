@@ -18,7 +18,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 16px;
+  padding: 5px 16px;
   border-top-left-radius: 0.4rem;
   border-top-right-radius: 0.4rem;
   background-color: #f1f6fc;
@@ -29,6 +29,8 @@
   color: #808280;
   background-color: transparent;
   cursor: pointer;
+  width: 30px;
+  height: 30px;
 }
 
 .mail-add-form-inputs {
@@ -92,4 +94,11 @@
 
 .mail-add-form-submit-button:hover {
   box-shadow: 0 0 3px 0.5px #2464cc;
+}
+
+.mail-add-form-header-button:hover{
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: rgba(128, 128, 128, 0.163);
 }
