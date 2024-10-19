@@ -1,7 +1,8 @@
 import { mailService } from "../services/mail.service.js";
+import { notesService } from "../../note/services/note.service.js";
 
 const { useEffect, useState } = React;
-const { useParams, useNavigate } = ReactRouterDOM;
+const { useParams, useNavigate, Link } = ReactRouterDOM;
 
 export function MailDetails() {
   const [mail, setMail] = useState(null);
@@ -31,6 +32,21 @@ export function MailDetails() {
           })
   }
 
+  function onSaveAsNote(){
+    notesService.save({
+      type: "NoteTxt",
+      createdAt: Date.now(),
+      isPinned: false,
+      info: {
+          title: mail.subject,
+          txt: mail.body
+      },
+      style: {
+          backgroundColor: '#ffffff'
+      },
+  })
+  }
+
   function handlePrint() {
     window.print();
   }
@@ -51,9 +67,16 @@ export function MailDetails() {
       <div className="mail-details-info">
         <div className="mail-details-subject-print">
           <h1 className="mail-details-subject">{mail.subject}</h1>
+          <div>
+          <button onClick={onSaveAsNote} >
+            <Link to='/notes'>
+              <img src="assets/img/note.add.icon.svg" alt="save as note" />
+          </Link>
+          </button>
           <button onClick={handlePrint}>
             <i className="fa-solid fa-print"></i>
           </button>
+          </div>
         </div>
 
         <div className="mail-details-img-from-to-date">

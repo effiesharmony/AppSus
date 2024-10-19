@@ -4,6 +4,8 @@ import { emptyNote } from "../services/note.service.js"
 import { AddNote } from "../cmps/AddNote.jsx"
 import { NoteFilter } from "../pages/NoteFilter.jsx"
 import { EditNote } from "../cmps/EditNote.jsx"
+import { showErrorMsg, showSuccessMsg } from "../../../services/event-bus.service.js"
+import { UserMsg } from "../../mail/cmps/UserMsg.jsx"
 
 const { useState, useEffect } = React
 
@@ -27,6 +29,7 @@ export function NoteIndex() {
             .then(setNotes)
             .catch(err => {
                 console.log('err:', err)
+                showErrorMsg("Problem loading notes")
                 return 'Oh nooooo! Error loading notes 🥺'
             })
     }
@@ -37,9 +40,11 @@ export function NoteIndex() {
                 setNotes(notes =>
                     notes.filter(note => note.id !== noteId)
                 )
+                showSuccessMsg("Note removed successfully")
             })
             .catch(err => {
                 console.log('Problems removing note:', err)
+                showErrorMsg("Couldn't delete note. please try again")
             })
     }
 
@@ -81,6 +86,7 @@ export function NoteIndex() {
                     )}
                 </div>
             </section>
+            <UserMsg />
         </div>
     )
 }

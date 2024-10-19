@@ -3,7 +3,6 @@ const { useState, useEffect } = React
 import { notesService } from "../services/note.service.js"
 import { NoteTitle } from "./NoteTitle.jsx"
 import { AddNoteBtns } from "./AddNoteBtns.jsx"
-import { emptyNote } from "../services/note.service.js"
 
 import { TextNote } from "./TextNote.jsx"
 import { TodosNote } from "./TodosNote.jsx"
@@ -47,11 +46,6 @@ export function AddNote({ note, setNote, setNoteToEdit }) {
         setNote(newNote)
     }
 
-    // function onSetNoteTitle(ev) {
-    //     const { value } = ev.target
-    //     setNote(prevNote => ({ ...prevNote, info: { title: value }}))
-    // }
-
     function onSaveNote(ev) {
         ev.preventDefault()
         let newNote = { ...note }
@@ -69,6 +63,7 @@ export function AddNote({ note, setNote, setNoteToEdit }) {
                 },
             })
         })
+        showSuccessMsg("Note added successfully")
         setNoteToEdit(null)
     }
 

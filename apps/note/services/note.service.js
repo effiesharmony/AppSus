@@ -91,7 +91,7 @@ const demoData = [
         createdAt: 1729365370534,
         isPinned: true,
         info: {
-            title: "dad's retirement party - 20/11",
+            title: "dad's retirement party",
             todos: [
                 {
                     isChecked: false,
