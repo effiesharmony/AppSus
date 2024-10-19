@@ -35,7 +35,7 @@ export function MailDetails() {
     window.print();
   }
 
-  if (!mail) return <div>Loading...</div>
+  if (!mail) return <div className="loader"><img src="/apps/mail/svg/loader.svg" alt="" /></div>
   const date = new Date(mail.sentAt).toLocaleString()
   return (
     <div className="mail-details">
