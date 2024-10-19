@@ -50,14 +50,24 @@ export function NotePreview({ note, onRemoveNote, setNoteToEdit }) {
             {note.type === 'NoteVid' && <a href={note.info.url} target="_blank">{note.info.url}</a>}
             {note.type === 'NoteTodos' &&
                 <ul>
-                    {note.info.todos.map((todo, index) =>
+                    {note.info.todos.map((todo, index) => !todo.isChecked ?
                         <li key={index} className="preview-li">
                             <input onChange={(ev) => onCheck(ev.target.checked, index)} type="checkbox" checked={todo.isChecked} />
                             <span className={`${todo.isChecked ? 'todo-txt strike' : 'todo-txt'}`}>{todo.text}</span>
                             <button onClick={() => onDeleteItem(index)} type="button" className="list-delete-btn">
                                 <img src="../../../assets/img/X.icon.svg" alt="" />
                             </button>
-                        </li>
+                        </li> : null
+                    )}
+                {note.info.todos.some(note => note.isChecked) && note.info.todos.some(note => !note.isChecked) && <hr />}
+                {note.info.todos.map((todo, index) => todo.isChecked ?
+                        <li key={index} className="preview-li">
+                            <input onChange={(ev) => onCheck(ev.target.checked, index)} type="checkbox" checked={todo.isChecked} />
+                            <span className={`${todo.isChecked ? 'todo-txt strike' : 'todo-txt'}`}>{todo.text}</span>
+                            <button onClick={() => onDeleteItem(index)} type="button" className="list-delete-btn">
+                                <img src="../../../assets/img/X.icon.svg" alt="" />
+                            </button>
+                        </li> : null
                     )}
                 </ul>
             }

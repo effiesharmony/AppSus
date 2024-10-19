@@ -46,14 +46,26 @@ export function TodosNote({ onAddInfo, note }) {
             </button>
             <ul className="todos-list" >
                 {
-                    todosList.map((todo, index) =>
+                    todosList.map((todo, index) => !todo.isChecked ?
                         <li key={index}>
                             <input onChange={(ev) => onCheck(ev.target.checked, index)} className="checkbox" type="checkbox" checked={todo.isChecked} />
                             <input onInput={(ev) => onTextInput(ev.target.value, index)} className="list-item-txt" type="text" placeholder="List item" value={todo.text} />
                             <button onClick={() => onRemoveItem(index)} type="button" className="list-delete-btn">
                                 <img src="../../../assets/img/X.icon.svg" alt="" />
                             </button>
-                        </li>
+                        </li> : null
+                    )
+                }
+                {todosList.some(note => note.isChecked) && todosList.some(note => !note.isChecked) && <hr />}
+                {
+                    todosList.map((todo, index) => todo.isChecked ?
+                        <li key={index}>
+                            <input onChange={(ev) => onCheck(ev.target.checked, index)} className="checkbox" type="checkbox" checked={todo.isChecked} />
+                            <p className="list-item-txt strike">{todo.text}</p>
+                            <button onClick={() => onRemoveItem(index)} type="button" className="list-delete-btn">
+                                <img src="../../../assets/img/X.icon.svg" alt="" />
+                            </button>
+                        </li> : null
                     )
                 }
             </ul>

@@ -32,7 +32,6 @@
 }
 
 .edit-dialog::backdrop {
-    /* background: var(--notes-main-color3); */
     background-color: var(--notes-main-color3);
     opacity: 0.3;
 

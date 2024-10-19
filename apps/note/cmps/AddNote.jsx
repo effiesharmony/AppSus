@@ -21,7 +21,17 @@ export function AddNote({ note, setNote, setNoteToEdit }) {
     }
 
     function onCancel() {
-        setNote(emptyNote)
+        setNote({
+            type: null,
+            createdAt: null,
+            isPinned: false,
+            info: {
+                title: ''
+            },
+            style: {
+                backgroundColor: '#ffffff'
+            },
+        })
         setNoteToEdit(null)
     }
 
@@ -43,7 +53,7 @@ export function AddNote({ note, setNote, setNoteToEdit }) {
     // }
 
     function onSaveNote(ev) {
-        // ev.preventDefault()
+        ev.preventDefault()
         let newNote = { ...note }
         newNote.createdAt = Date.now()
         notesService.save(newNote).then(() => {
