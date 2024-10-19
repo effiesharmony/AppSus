@@ -1,7 +1,6 @@
 import { mailService } from "../services/mail.service.js";
 import { utilService } from "../../../services/util.service.js";
 import { MailList } from "../cmps/MailList.jsx";
-import { MailAdd } from "../cmps/MailAdd.jsx";
 import { MailEditor } from "../cmps/MailEditor.jsx";
 import { MailFilter } from "../cmps/MailFilter.jsx";
 
@@ -11,7 +10,6 @@ const { useSearchParams } = ReactRouterDOM;
 export function MailIndex() {
   const [mails, setMails] = useState(null);
   const [editingDraft, setEditingDraft] = useState(null);
-  const [isAddingMail, setIsAddingMail] = useState(false);
   const [isEditingDraft, setIsEditingDraft] = useState(false);
   const [searchParams, setSearchParams] = useSearchParams();
   const [filterBy, setFilterBy] = useState(
@@ -34,7 +32,9 @@ export function MailIndex() {
     const updatedMails = mails.map((mail) => {
       if (mail.id === mailId) {
         if (mail.status !== "trash") {
-          return { ...mail, status: "trash" };
+          const updatedMail = { ...mail, status: "trash" }
+          mailService.save(updatedMail)
+          return updatedMail
         } else {
           mailService
             .remove(mailId)
@@ -44,14 +44,13 @@ export function MailIndex() {
             .catch((err) => {
               console.log("Problems removing mail:", err);
             });
+            return mail
         }
       }
       return mail;
     });
-
-    const updatedMail = updatedMails.find((mail) => mail.id === mailId);
     setMails(updatedMails);
-    mailService.save(updatedMail);
+    mailService.saveAll(updatedMails.filter((mail) => mail.status !== "trash"));
   }
 
   function onMarkAsRead(mailId) {
@@ -81,20 +80,14 @@ export function MailIndex() {
     mailService.save(updatedMail);
   }
 
-  function onAddMail() {
-    setIsAddingMail(true);
-  }
-
   function onCancel() {
-    setIsAddingMail(false);
     setIsEditingDraft(false)
     loadMails()
   }
 
   function onSentMail() {
-    loadMails();
-    setIsAddingMail(false);
     setIsEditingDraft(false)
+    loadMails();
   }
 
   function onDraftClick(mailId){
@@ -112,10 +105,7 @@ export function MailIndex() {
     <main className="main-mail-index">
       <div className="main-mail-index-page">
         <div className="main-mail-index-btn">
-          <button className="main-mail-index-btn-add-mail" onClick={onAddMail} title="Compose">
-            <i className="fa-solid fa-pen"></i>
-          </button>
-          <MailFilter filterBy={filterBy} onSetFilter={onSetFilter} />
+          <MailFilter filterBy={filterBy} onSetFilter={onSetFilter} onSentMail={onSentMail} onCancel={onCancel}/>
         </div>
         <div>
           <MailList
@@ -128,11 +118,6 @@ export function MailIndex() {
             onSetFilter={onSetFilter}
           />
         </div>
-      </div>
-      <div>
-        {isAddingMail && (
-          <MailAdd onSentMail={onSentMail} onCancel={onCancel} />
-        )}
       </div>
       <div>
         {isEditingDraft && (

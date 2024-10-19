@@ -1,19 +1,27 @@
-const { useState, useEffect, useRef } = React;
+import { MailAdd } from "../cmps/MailAdd.jsx";
 
-export function MailFilter({ filterBy, onSetFilter }) {
+const { useState, useEffect } = React;
+
+export function MailFilter({
+  filterBy,
+  onSetFilter,
+  onSentMail,
+  onCancel,
+}) {
   const [filter, setFilter] = useState(filterBy);
   const [isHovered, setIsHovered] = useState(false);
+  const [isAddingMail, setIsAddingMail] = useState(false);
 
   useEffect(() => {
     onSetFilter(filter);
   }, [filter]);
 
   function handleMouseEnter() {
-      setIsHovered(true);
+    setIsHovered(true);
   }
 
   function handleMouseLeave() {
-      setIsHovered(false);
+    setIsHovered(false);
   }
 
   function handleFilterChange(selectedFilter) {
@@ -23,13 +31,34 @@ export function MailFilter({ filterBy, onSetFilter }) {
     }));
   }
 
+  function addMail() {
+    setIsAddingMail(true);
+  }
+
+  function cancelAddMail() {
+    setIsAddingMail(false);
+    onCancel()
+  }
+
+  function sentMail() {
+    setIsAddingMail(false);
+    onSentMail();
+  }
+
   return (
-    <section
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-    >
+    <section onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
       {!isHovered && (
         <div className="mail-filter">
+          <div className="mail-filter-add-mail-button">
+            <button
+              className="mail-filter-add-mail-button"
+              onClick={addMail}
+              title="Compose"
+            >
+              <i className="fa-solid fa-pen"></i>
+            </button>
+          </div>
+
           <button
             className={filter.status === "" ? "active" : ""}
             onClick={() => handleFilterChange("")}
@@ -70,6 +99,16 @@ export function MailFilter({ filterBy, onSetFilter }) {
 
       {isHovered && (
         <div className="mail-filter hover">
+          <div className="mail-filter-add-mail-button">
+            <button
+              className="mail-filter-add-mail-button button"
+              onClick={addMail}
+              title="Compose"
+            >
+              <i className="fa-solid fa-pen"></i>
+              <span>Compose</span>
+            </button>
+          </div>
           <button
             className={filter.status === "" ? "active" : ""}
             onClick={() => handleFilterChange("")}
@@ -112,6 +151,11 @@ export function MailFilter({ filterBy, onSetFilter }) {
           </button>
         </div>
       )}
+      <div>
+        {isAddingMail && (
+          <MailAdd sentMail={sentMail} cancelAddMail={cancelAddMail} />
+        )}
+      </div>
     </section>
   );
 }

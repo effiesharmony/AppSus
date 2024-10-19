@@ -1,7 +1,7 @@
 import { mailService } from "../services/mail.service.js";
 const { useState } = React;
 
-export function MailAdd({ onSentMail, onCancel }) {
+export function MailAdd({ sentMail, cancelAddMail }) {
   const [subject, setSubject] = useState("");
   const [body, setBody] = useState("");
   const [to, setTo] = useState("");
@@ -31,7 +31,7 @@ export function MailAdd({ onSentMail, onCancel }) {
         setTo("");
     })
     .catch((err) => console.log("Error with sending a mail", err));
-    onSentMail()
+    sentMail()
   }
 
   function mailDraft(ev) {
@@ -54,7 +54,7 @@ export function MailAdd({ onSentMail, onCancel }) {
         setTo("");
     })
     .catch((err) => console.log("Error with sending a mail", err));
-    onCancel()
+    cancelAddMail()
   }
 
   return (
