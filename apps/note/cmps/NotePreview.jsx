@@ -1,5 +1,6 @@
 import { notesService } from "../services/note.service.js"
 import { ColorPicker } from "./ColorPicker.jsx"
+import { mailService } from "../../mail/services/mail.service.js"
 const { useState } = React
 const { Link } = ReactRouterDOM
 
@@ -38,6 +39,23 @@ export function NotePreview({ note, onRemoveNote, setNoteToEdit }) {
         notesService.save(note)
     }
 
+    function onSendAsMail() {
+        mailService.save(
+            {
+                createdAt: Date.now(),
+                subject: note.info.title || '(no subject)',
+                body: note.info.txt || note.info.url || note.info.todos.map(todo => todo.text) || '(no body)',
+                isRead: true,
+                sentAt: null,
+                removedAt: null,
+                from: "valery@appsus.com",
+                to: '',
+                status: 'draft',
+                isNote: true
+            }
+        )
+    }
+
 
     return (
         <article style={{ backgroundColor: note.style.backgroundColor }} className="note-preview">
@@ -59,8 +77,8 @@ export function NotePreview({ note, onRemoveNote, setNoteToEdit }) {
                             </button>
                         </li> : null
                     )}
-                {note.info.todos.some(note => note.isChecked) && note.info.todos.some(note => !note.isChecked) && <hr />}
-                {note.info.todos.map((todo, index) => todo.isChecked ?
+                    {note.info.todos.some(note => note.isChecked) && note.info.todos.some(note => !note.isChecked) && <hr />}
+                    {note.info.todos.map((todo, index) => todo.isChecked ?
                         <li key={index} className="preview-li">
                             <input onChange={(ev) => onCheck(ev.target.checked, index)} type="checkbox" checked={todo.isChecked} />
                             <span className={`${todo.isChecked ? 'todo-txt strike' : 'todo-txt'}`}>{todo.text}</span>
@@ -84,6 +102,11 @@ export function NotePreview({ note, onRemoveNote, setNoteToEdit }) {
                 </button>
                 <button onClick={onDuplicateNote} className="duplicate">
                     <img src="../../../assets/img/copy.icon.svg" alt="Copy" />
+                </button>
+                <button onClick={onSendAsMail}>
+                    <Link to='/mail'>
+                        <img src="assets/img/send.mail.icon.svg" alt="Send as mail" />
+                    </Link>
                 </button>
             </section>
         </article>
