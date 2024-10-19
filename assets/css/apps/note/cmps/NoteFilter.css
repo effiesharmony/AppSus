@@ -2,8 +2,8 @@
     display: flex;
     position: absolute;
     background-color: var(--notes-search-bg-color);
-    top: 8px;
-    left: 160px;
+    top: 20px;
+    left: 180px;
     width: 500px;
     max-width: 720px;
     min-width: 400px;
