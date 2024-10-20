@@ -18,19 +18,6 @@ export const emptyNote = {
 
 const demoData = [
     {
-        type: "NoteImg",
-        createdAt: 1729362755162,
-        isPinned: false,
-        info: {
-            title: "Cutest cat!",
-            url: "https://media.self.com/photos/57d8c2d150778cef321a5c63/master/w_1600,c_limit/cute-kitty-rub-my-belly.jpg"
-        },
-        style: {
-            backgroundColor: "#aeccdc"
-        },
-        id: "FwL7H"
-    },
-    {
         type: "NoteTxt",
         createdAt: 1729362774661,
         isPinned: false,
@@ -39,16 +26,16 @@ const demoData = [
             txt: "We fucking got thisss!!!"
         },
         style: {
-            backgroundColor: "#faafa8"
+            backgroundColor: "#b4ddd3"
         },
         id: "vJOyv"
     },
     {
         type: "NoteTodos",
-        createdAt: 1729362886627,
+        createdAt: 1729381593459,
         isPinned: false,
         info: {
-            title: "Thing to finish",
+            title: "Things to finish",
             todos: [
                 {
                     isChecked: true,
@@ -59,12 +46,8 @@ const demoData = [
                     text: "create demo data"
                 },
                 {
-                    isChecked: false,
+                    isChecked: true,
                     text: "add homepage and info"
-                },
-                {
-                    isChecked: false,
-                    text: "catch them all"
                 }
             ]
         },
@@ -72,19 +55,6 @@ const demoData = [
             backgroundColor: "#e2f6d3"
         },
         id: "v6TFm"
-    },
-    {
-        type: "NoteVid",
-        createdAt: 1729363033537,
-        isPinned: false,
-        info: {
-            title: "cookie recipe",
-            url: "https://www.youtube.com/watch?v=hqd8i8eXDsQ&ab_channel=PickUpLimes"
-        },
-        style: {
-            backgroundColor: "#e9e3d4"
-        },
-        id: "IQ38s"
     },
     {
         type: "NoteTodos",
@@ -119,7 +89,7 @@ const demoData = [
     {
         type: "NoteTxt",
         createdAt: 1729365596850,
-        isPinned: false,
+        isPinned: true,
         info: {
             title: "חבילות בדואר",
             txt: "לאסוף חבילה + לברר מחירים"
@@ -131,16 +101,69 @@ const demoData = [
     },
     {
         type: "NoteImg",
-        createdAt: 1729365828725,
+        createdAt: 1729381574157,
         isPinned: false,
         info: {
-            title: "flowers",
-            url: "https://cdn.shopify.com/s/files/1/0780/3119/2375/files/7_97877187-c6e1-4d8f-b26b-745e3a6f56e0_1024x1024.jpg?v=1712895726"
+            title: "",
+            url: "https://i.pinimg.com/736x/c5/f8/17/c5f8177f3f415098be91ae45f01040c0.jpg"
+        },
+        style: {
+            backgroundColor: "#fff8b8"
+        },
+        id: "GPmZp"
+    },
+    {
+        type: "NoteImg",
+        createdAt: 1729381646086,
+        isPinned: true,
+        info: {
+            title: "pink lillies",
+            url: "https://i.pinimg.com/enabled/564x/51/e5/98/51e59816ed7c526b8bf3693ff3c5e2a1.jpg"
         },
         style: {
             backgroundColor: "#faafa8"
         },
-        id: "wrndH"
+        id: "ZrGIF"
+    },
+    {
+        type: "NoteVid",
+        createdAt: 1729381696531,
+        isPinned: false,
+        info: {
+            title: "cocolate-chip cookies",
+            url: "https://www.youtube.com/watch?v=hqd8i8eXDsQ&ab_channel=PickUpLimes"
+        },
+        style: {
+            backgroundColor: "#efeff1"
+        },
+        id: "Xqb54"
+    },
+    {
+        type: "NoteImg",
+        createdAt: 1729381793182,
+        isPinned: true,
+        info: {
+            title: "Hydrangea",
+            url: "https://i.pinimg.com/enabled/564x/e6/86/d1/e686d1e3ee96eb4635dfb6560a354f9c.jpg"
+        },
+        style: {
+            backgroundColor: "#d3bfdb"
+        },
+        id: "kd5SJ"
+    },
+    {
+        type: "NoteImg",
+        createdAt: 1729382187396,
+        isPinned: true,
+        info:
+        {
+            title: "✨sparkle kitty✨",
+            url: "https://i.pinimg.com/736x/bb/b7/62/bbb7623b5a5a3de5b004bec14b02c5d6.jpg"
+        },
+        style: {
+            backgroundColor: "#aeccdc"
+        },
+        id: "beBbV"
     }
 ]
 

@@ -37,6 +37,8 @@ export function NotePreview({ note, onRemoveNote, setNoteToEdit }) {
     function onPin() {
         note.isPinned = !note.isPinned
         notesService.save(note)
+        if(note.isPinned)showSuccessMsg('Pinned note')
+        if(!note.isPinned)showSuccessMsg('Unpinned note')
     }
 
     function onSendAsMail() {

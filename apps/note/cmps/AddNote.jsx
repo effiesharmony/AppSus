@@ -8,6 +8,8 @@ import { TextNote } from "./TextNote.jsx"
 import { TodosNote } from "./TodosNote.jsx"
 import { ImageNote } from "./ImageNote.jsx"
 import { VideoNote } from "./VideoNote.jsx"
+import { UserMsg } from "../../mail/cmps/UserMsg.jsx"
+import { showSuccessMsg } from "../../../services/event-bus.service.js"
 
 export function AddNote({ note, setNote, setNoteToEdit }) {
 

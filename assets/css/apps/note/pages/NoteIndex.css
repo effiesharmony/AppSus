@@ -1,1 +1,47 @@
- /* note index */
+* {
+    box-sizing: border-box;
+}
+
+.note-index {
+    transition: 200ms;
+    margin: 0 15px;
+}
+
+.pinned-notes,
+.other-notes {
+    grid-column: 2;
+    columns: auto 250px;
+    break-inside: avoid;
+}
+
+.note-index h1 {
+    font-size: 1.5em;
+    margin-bottom: .8em;
+}
+
+.pinned-notes-title,
+.other-notes-title {
+    grid-column: 2;
+    font-size: 0.6875rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: .1rem;
+    margin: .5rem;
+}
+
+.other-notes-title {
+    margin-top: 4.375rem;
+}
+
+.edit-dialog::backdrop {
+    background-color: var(--notes-main-color3);
+    opacity: 0.3;
+
+}
+
+.edit-dialog {
+    background-color: transparent;
+    z-index: 1;
+    border: none;
+    width: 600px;
+}
