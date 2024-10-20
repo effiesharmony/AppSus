@@ -42,7 +42,7 @@ export function TodosNote({ onAddInfo, note }) {
     return (
         <div className="todos-note">
             <button onClick={() => addEmptyListItem()} type="button" className="list-add-btn">
-                <img src="../../../assets/img/add.icon.svg" alt="" />
+                <img src="assets/img/add.icon.svg" alt="" />
             </button>
             <ul className="todos-list" >
                 {
@@ -51,7 +51,7 @@ export function TodosNote({ onAddInfo, note }) {
                             <input onChange={(ev) => onCheck(ev.target.checked, index)} className="checkbox" type="checkbox" checked={todo.isChecked} />
                             <input onInput={(ev) => onTextInput(ev.target.value, index)} className="list-item-txt" type="text" placeholder="List item" value={todo.text} />
                             <button onClick={() => onRemoveItem(index)} type="button" className="list-delete-btn">
-                                <img src="../../../assets/img/X.icon.svg" alt="" />
+                                <img src="assets/img/X.icon.svg" alt="" />
                             </button>
                         </li> : null
                     )
@@ -63,7 +63,7 @@ export function TodosNote({ onAddInfo, note }) {
                             <input onChange={(ev) => onCheck(ev.target.checked, index)} className="checkbox" type="checkbox" checked={todo.isChecked} />
                             <p className="list-item-txt strike">{todo.text}</p>
                             <button onClick={() => onRemoveItem(index)} type="button" className="list-delete-btn">
-                                <img src="../../../assets/img/X.icon.svg" alt="" />
+                                <img src="assets/img/X.icon.svg" alt="" />
                             </button>
                         </li> : null
                     )

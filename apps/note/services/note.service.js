@@ -74,10 +74,6 @@ const demoData = [
                 {
                     isChecked: false,
                     text: "buy gift"
-                },
-                {
-                    isChecked: false,
-                    text: "catch them all"
                 }
             ]
         },
