@@ -6,7 +6,7 @@ export function AppHeader() {
     <header className="app-header">
         <Link to="/">
         <div className="logo-img">
-          <img src="../logo.imgs/logo.png" alt="" />
+          <img src="logo.imgs/logo.png" alt="" />
         </div>
         {/* <img className="hamburger-btn" src="./assets/img/hamburger-btn.svg" alt="" /> */}
         </Link>
