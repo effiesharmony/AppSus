@@ -2,7 +2,7 @@ import { mailService } from "../services/mail.service.js";
 
 const { useNavigate } = ReactRouterDOM;
 
-export function MailPreview({ mail, onRemoveMail, onMarkAsRead, onMarkStar, onDraftClick }) {
+export function MailPreview({ mail, onRemoveMail, onMarkAsRead, onMarkStar, onDraftClick, onMarkUnreadRead }) {
   const { subject, body, from, sentAt, isRead, isStarred } = mail;
   const date = new Date(sentAt).toLocaleString();
   const navigate = useNavigate();
@@ -18,13 +18,17 @@ export function MailPreview({ mail, onRemoveMail, onMarkAsRead, onMarkStar, onDr
 
   function onMailStarClick(ev) {
     ev.stopPropagation();
-    console.log('Star clicked for mailId:', mail.id)
     onMarkStar(mail.id)
   }
 
   function onRemoving(ev) {
     ev.stopPropagation();
     onRemoveMail(mail.id);
+  }
+
+  function onReadUnread(ev){
+    ev.stopPropagation();
+    onMarkUnreadRead(mail.id)
   }
 
   return (
@@ -51,6 +55,9 @@ export function MailPreview({ mail, onRemoveMail, onMarkAsRead, onMarkStar, onDr
       </div>
 
       <div className="mail-preview-detail-delete-btn">
+      <button className="mail-preview-read" onClick={onReadUnread}>
+      <i className="fa-solid fa-envelope-open"></i>
+        </button>
         <button className="mail-preview-delete-btn" onClick={onRemoving}>
         <i className="fa-solid fa-trash-can"></i>
         </button>

@@ -25,10 +25,10 @@ export function MailIndex() {
   useEffect(() => {
     if (mails) {
       let noteMails = mails.filter((mail) => mail.isNote);
-          if(noteMails.length > 0){
-            setEditingDraft(noteMails[0])
-            setIsEditingDraft(true)
-          }
+      if (noteMails.length > 0) {
+        setEditingDraft(noteMails[0]);
+        setIsEditingDraft(true);
+      }
     }
   }, [mails]);
 
@@ -115,6 +115,18 @@ export function MailIndex() {
     setFilterBy((prevFilter) => ({ ...prevFilter, ...filterByToEdit }));
   }
 
+  function onMarkUnreadRead(mailId) {
+    const updatedMails = mails.map((mail) => {
+      if (mail.id === mailId) {
+        mail.isRead = !mail.isRead;
+      }
+      return mail;
+    });
+    setMails(updatedMails);
+    const updatedMail = updatedMails.find((mail) => mail.id === mailId);
+    mailService.save(updatedMail);
+  }
+
   if (!mails)
     return (
       <div className="loader">
@@ -141,6 +153,7 @@ export function MailIndex() {
             onMarkStar={onMarkStar}
             onDraftClick={onDraftClick}
             onSetFilter={onSetFilter}
+            onMarkUnreadRead={onMarkUnreadRead}
           />
         </div>
       </div>

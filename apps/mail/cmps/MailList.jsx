@@ -1,7 +1,7 @@
 import { MailPreview } from "./MailPreview.jsx";
 import { MailFilter2 } from "../cmps/MailFilter2.jsx";
 
-export function MailList({ mails, onRemoveMail, onMarkAsRead, onMarkStar, filterBy, onSetFilter, onDraftClick }) {
+export function MailList({ mails, onRemoveMail, onMarkAsRead, onMarkStar, filterBy, onSetFilter, onDraftClick, onMarkUnreadRead }) {
   function getFilteredMails(mails, filterBy) {
     if (filterBy.status === 'trash') {
       return mails.filter(mail => mail.status === 'trash');
@@ -28,6 +28,7 @@ export function MailList({ mails, onRemoveMail, onMarkAsRead, onMarkStar, filter
               onMarkAsRead={onMarkAsRead}
               onDraftClick={onDraftClick}
               onMarkStar={onMarkStar}
+              onMarkUnreadRead={onMarkUnreadRead}
             />
           </li>
           ))

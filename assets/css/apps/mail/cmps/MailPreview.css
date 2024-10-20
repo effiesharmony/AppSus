@@ -80,7 +80,7 @@
   margin-right: 10px;
   justify-self: end;
   border: none;
-  background-color: transparent;
+  background-color: transparent;  
 }
 
 .mail-preview-delete-btn {
@@ -89,13 +89,33 @@
   background-color: transparent;
   text-overflow: ellipsis;
   color: #595959;
+  margin-left: 10px;
+  width: 30px;
+  height: 30px;
 }
 
 .mail-preview-delete-btn:hover {
-  position: absolute;
-  right: 11px;
-  top: 2px;
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
-  padding: 13px 15px;
+  background-color: rgba(128, 128, 128, 0.217);
+}
+
+.mail-preview-read{
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+  text-overflow: ellipsis;
+  color: #595959;
+  margin-left: 10px;
+  width: 30px;
+  height: 30px;
+  z-index: 2;
+}
+
+.mail-preview-read:hover {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
   background-color: rgba(128, 128, 128, 0.217);
 }
