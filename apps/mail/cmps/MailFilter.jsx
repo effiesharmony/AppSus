@@ -46,9 +46,9 @@ export function MailFilter({
   }
 
   return (
-    <section onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+    <section>
       {!isHovered && (
-        <div className="mail-filter">
+        <div className="mail-filter" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
           <div className="mail-filter-add-mail-button">
             <button
               className="mail-filter-add-mail-button"
@@ -98,7 +98,7 @@ export function MailFilter({
       )}
 
       {isHovered && (
-        <div className="mail-filter-hover">
+        <div className="mail-filter-hover" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
           <div className="mail-filter-add-mail-button">
             <button
               className="mail-filter-add-mail-button"
