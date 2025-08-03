@@ -19,6 +19,7 @@
 .note-preview-container {
     display: grid;
     grid-template-columns: minmax(10px, 150px) 1fr minmax(10px, 150px);
+	/* width: 100%; */
     transition: 200ms;
 }
 

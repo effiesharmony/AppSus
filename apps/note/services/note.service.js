@@ -114,7 +114,7 @@ const demoData = [
         isPinned: true,
         info: {
             title: "pink lillies",
-            url: "https://i.pinimg.com/enabled/564x/51/e5/98/51e59816ed7c526b8bf3693ff3c5e2a1.jpg"
+            url: "https://i.pinimg.com/736x/33/95/47/3395475a4d27f0bf5230f313845256c6.jpg"
         },
         style: {
             backgroundColor: "#faafa8"
@@ -140,7 +140,7 @@ const demoData = [
         isPinned: true,
         info: {
             title: "Hydrangea",
-            url: "https://i.pinimg.com/enabled/564x/e6/86/d1/e686d1e3ee96eb4635dfb6560a354f9c.jpg"
+            url: "https://i.pinimg.com/1200x/a2/c3/76/a2c376b762a410be851cf6574bf77622.jpg"
         },
         style: {
             backgroundColor: "#d3bfdb"

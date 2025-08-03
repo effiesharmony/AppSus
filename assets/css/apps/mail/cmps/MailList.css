@@ -1,10 +1,4 @@
 .mail-list-cmpn {
-  padding: 0;
-  margin: 0;
-  width: 100%;
-  min-height: 60vh;
-  padding-top: 10px;
-  padding-bottom: 20px;
   border-radius: 1rem;
   background-color: white;
 }
@@ -12,11 +6,6 @@
 .mail-list {
   list-style-type: none;
   padding: 0;
-  margin: 0;
-  width: 100%;
-  min-width: 100%;
-  padding-top: 10px;
-  background-color: white;
   border-top: 1px solid rgba(128, 128, 128, 0.217);
 }
 
@@ -25,4 +14,5 @@
   text-align: center;
   font-size: 1.5rem;
   color: #888;
+  min-height: 50vh;
 }

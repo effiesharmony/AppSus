@@ -33,6 +33,7 @@
   opacity: 1;
   z-index: 1;
 }
+
 .mail-preview:hover .mail-preview-detail-delete-btn {
   display: block;
   z-index: 2;
@@ -90,13 +91,11 @@
   text-overflow: ellipsis;
   color: #595959;
   margin-left: 10px;
-  width: 30px;
-  height: 30px;
+  width: 29px;
+  height: 29px;
 }
 
 .mail-preview-delete-btn:hover {
-  width: 30px;
-  height: 30px;
   border-radius: 50%;
   background-color: rgba(128, 128, 128, 0.217);
 }
@@ -108,14 +107,12 @@
   text-overflow: ellipsis;
   color: #595959;
   margin-left: 10px;
-  width: 30px;
-  height: 30px;
+  width: 29px;
+  height: 29px;
   z-index: 2;
 }
 
 .mail-preview-read:hover {
-  width: 30px;
-  height: 30px;
   border-radius: 50%;
   background-color: rgba(128, 128, 128, 0.217);
 }

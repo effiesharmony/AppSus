@@ -1,41 +1,69 @@
-.about{
-    font-family: Google Sans;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 100px;
-    margin-top: 50px;
-    text-align: center;
+.about {
+	position: relative;
+	top: 64px;
+	font-family: Google Sans;
+	display: flex;
+	align-items: start;
+	justify-content: center;
+	gap: 100px;
+	text-align: center;
+	margin-bottom: 64px;
 }
 
-.about-valery, .about-effie{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 20px;
-    width: auto;
-    padding: 20px;
-    border-radius: 1rem;
-    box-shadow: 0 0 5px 1px rgba(255, 205, 205, 0.933);
+.about-valery,
+.about-effie {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 20px;
+	width: auto;
+	padding: 65px 45px;
+	margin-bottom: 40px;
+	border-radius: 1rem;
+	box-shadow: 0 0 5px 1px rgba(255, 205, 205, 0.933);
 }
 
-.about-valery img, .about-effie img{
-    width: 250px;
-    border-radius: 50%;
-    overflow: hidden;
+.about-valery img,
+.about-effie img {
+	width: 250px;
+	border-radius: 50%;
+	overflow: hidden;
 }
 
-.about-valery h1, .about-effie h1{
-    font-size: 1.2rem;
-    width: 250px;
-    font-family: Google Sans-Bold;
-    letter-spacing: 0.05rem;
+.about-valery h1,
+.about-effie h1 {
+	font-size: 1.2rem;
+	width: 250px;
+	font-family: Google Sans-Bold;
+	font-weight: normal;
+	letter-spacing: 0.05rem;
 }
 
-.about-valery h2, .about-effie h2{
-    font-size: 0.9rem;
-    width: 250px;
-    font-family: Google Sans;
-    letter-spacing: 0.05rem;
+.about-valery h2,
+.about-effie h2 {
+	font-size: 0.9rem;
+	font-weight: normal;
+	width: 250px;
+	font-family: Google Sans;
+	letter-spacing: 0.05rem;
+}
+
+@media (max-width: 795px) {
+	.about {
+		top: 20px;
+		flex-direction: column;
+		align-items: center;
+		gap: 0;
+		margin: 0;
+	}
+
+	.about-valery img,
+	.about-effie img {
+		width: 180px;
+	}
+	.about-valery,
+	.about-effie {
+		padding: 45px 25px;
+	}
 }
